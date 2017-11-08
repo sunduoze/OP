@@ -1,0 +1,942 @@
+<HTML>
+<HEAD>
+<TITLE>Op Amp Expert</TITLE>
+<SCRIPT language="JavaScript">
+NewImg = new Array (
+"case1_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case1_equ_a.gif*/,
+"case2_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case2_equ_a.gif*/,
+"case3_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case3_equ_a.gif*/,
+"case4_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case4_equ_a.gif*/,
+"case5_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case5_equ_a.gif*/,
+"case6_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case6_equ_a.gif*/,
+"case7_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case7_equ_a.gif*/,
+"case8_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case8_equ_a.gif*/,
+"case9_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case9_equ_a.gif*/,
+"case10_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case10_equ_a.gif*/,
+"case11_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case11_equ_a.gif*/,
+"case12_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case12_equ_a.gif*/,
+"case13_equ_a.gif"/*tpa=http://booksite.elsevier.com/9780123914958/content/gain_offset/case13_equ_a.gif*/
+);
+varl = NewImg.length;
+function load_test_case()
+{
+   test_case = parseFloat(document.theForm.test_case.value)
+   if (test_case == 1)
+   {
+      document.theForm.vinzs.value = .01
+      document.theForm.vinfs.value = 1
+      document.theForm.voutzs.value = 1
+      document.theForm.voutfs.value = 4.5
+      document.theForm.vref.value = 5
+   }
+   if (test_case == 2)
+   {
+      document.theForm.vinzs.value = .2
+      document.theForm.vinfs.value = .5
+      document.theForm.voutzs.value = 1.5
+      document.theForm.voutfs.value = 4.5
+      document.theForm.vref.value = 5
+   }
+   if (test_case == 3)
+   {
+      document.theForm.vinzs.value = - .1
+      document.theForm.vinfs.value = - 1
+      document.theForm.voutzs.value = 1
+      document.theForm.voutfs.value = 6
+      document.theForm.vref.value = 10
+   }
+   if (test_case == 4)
+   {
+      document.theForm.vinzs.value = - .1
+      document.theForm.vinfs.value = - .3
+      document.theForm.voutzs.value = 1
+      document.theForm.voutfs.value = 5
+      document.theForm.vref.value = 5
+   }
+   if (test_case == 5)
+   {
+      document.theForm.vinzs.value = - .5
+      document.theForm.vinfs.value = .5
+      document.theForm.voutzs.value = - 2.875
+      document.theForm.voutfs.value = 2.875
+      document.theForm.vref.value = 0
+   }
+   if (test_case == 6)
+   {
+      document.theForm.vinzs.value = 0
+      document.theForm.vinfs.value = 1
+      document.theForm.voutzs.value = 0
+      document.theForm.voutfs.value = - 3
+      document.theForm.vref.value = 0
+   }
+   if (test_case == 7)
+   {
+      document.theForm.vinzs.value = .01
+      document.theForm.vinfs.value = 1
+      document.theForm.voutzs.value = 1.01
+      document.theForm.voutfs.value = 1.5
+      document.theForm.vref.value = 5
+   }
+   if (test_case == 8)
+   {
+      document.theForm.vinzs.value = .01
+      document.theForm.vinfs.value = 1
+      document.theForm.voutzs.value = - .99
+      document.theForm.voutfs.value = 0
+      document.theForm.vref.value = 5
+   }
+   if (test_case == 9)
+   {
+      document.theForm.vinzs.value = 0
+      document.theForm.vinfs.value = 1
+      document.theForm.voutzs.value = 0
+      document.theForm.voutfs.value = 1
+      document.theForm.vref.value = 0
+   }
+   if (test_case == 10)
+   {
+      document.theForm.vinzs.value = 0
+      document.theForm.vinfs.value = 5
+      document.theForm.voutzs.value = 0
+      document.theForm.voutfs.value = 3.3
+      document.theForm.vref.value = 0
+   }
+   if (test_case == 11)
+   {
+      document.theForm.vinzs.value = 0
+      document.theForm.vinfs.value = - 1
+      document.theForm.voutzs.value = 1
+      document.theForm.voutfs.value = 1.1
+      document.theForm.vref.value = 5
+   }
+   if (test_case == 12)
+   {
+      document.theForm.vinzs.value = - .1
+      document.theForm.vinfs.value = - .3
+      document.theForm.voutzs.value = 0
+      document.theForm.voutfs.value = .1
+      document.theForm.vref.value = 5
+   }
+   if (test_case == 13)
+   {
+      document.theForm.vinzs.value = 0
+      document.theForm.vinfs.value = 1
+      document.theForm.voutzs.value = 0
+      document.theForm.voutfs.value = - .1
+      document.theForm.vref.value = 0
+   }
+}
+function calculate_case()
+{
+   res = new Array (100, 102, 105, 107, 110, 113, 115, 118, 121, 124, 127, 130, 133, 137, 140, 143, 147, 150, 154, 158, 162, 165, 169, 174, 178, 182, 187, 191, 196, 200, 205, 210, 215, 221, 226, 232, 237, 243, 249, 255, 261, 267, 274, 280, 287, 294, 301, 309, 316, 324, 332, 340, 348, 357, 365, 374, 383, 392, 402, 412, 422, 432, 442, 453, 464, 475, 487, 499, 511, 523, 536, 549, 562, 576, 590, 604, 619, 634, 649, 665, 681, 698, 715, 732, 750, 768, 787, 806, 825, 845, 866, 887, 909, 931, 953, 976, 1000, 1020, 1050, 1070, 1100, 1130, 1150, 1180, 1210, 1240, 1270, 1300, 1330, 1370, 1400, 1430, 1470, 1500, 1540, 1580, 1620, 1650, 1690, 1740, 1780, 1820, 1870, 1910, 1960, 2000, 2050, 2100, 2150, 2210, 2260, 2320, 2370, 2430, 2490, 2550, 2610, 2670, 2740, 2800, 2870, 2940, 3010, 3090, 3160, 3240, 3320, 3400, 3480, 3570, 3650, 3740, 3830, 3920, 4020, 4120, 4220, 4320, 4420, 4530, 4640, 4750, 4870, 4990, 5110, 5230, 5360, 5490, 5620, 5760, 5900, 6040, 6190, 6340, 6490, 6650, 6810, 6980, 7150, 7320, 7500, 7680, 7870, 8060, 8250, 8450, 8660, 8870, 9090, 9310, 9530, 9760, 10000, 10200, 10500, 10700, 11000, 11300, 11500, 11800, 12100, 12400, 12700, 13000, 13300, 13700, 14000, 14300, 14700, 15000, 15400, 15800, 16200, 16500, 16900, 17400, 17800, 18200, 18700, 19100, 19600, 20000, 20500, 21000, 21500, 22100, 22600, 23200, 23700, 24300, 24900, 25500, 26100, 26700, 27400, 28000, 28700, 29400, 30100, 30900, 31600, 32400, 33200, 34000, 34800, 35700, 36500, 37400, 38300, 39200, 40200, 41200, 42200, 43200, 44200, 45300, 46400, 47500, 48700, 49900, 51100, 52300, 53600, 54900, 56200, 57600, 59000, 60400, 61900, 63400, 64900, 66500, 68100, 69800, 71500, 73200, 75000, 76800, 78700, 80600, 82500, 84500, 86600, 88700, 90900, 93100, 95300, 97600, 100000);
+   rin = new Array (49.9, 51.1, 52.3, 53.6, 54.9, 56.2, 57.6, 59.0, 60.4, 61.9, 63.4, 64.9, 66.5, 68.1, 69.8, 71.5, 73.2, 75.0, 76.8, 78.7, 80.6, 82.5, 84.5, 86.6, 88.7, 90.9, 93.1, 95.3, 97.6, 100, 102, 105, 107, 110, 113, 115, 118, 121, 124, 127, 130, 133, 137, 140, 143, 147, 150, 154, 158, 162, 165, 169, 174, 178, 182, 187, 191, 196, 200, 205, 210, 215, 221, 226, 232, 237, 243, 249, 255, 261, 267, 274, 280, 287, 294, 301, 309, 316, 324, 332, 340, 348, 357, 365, 374, 383, 392, 402, 412, 422, 432, 442, 453, 464, 475, 487, 499, 511, 523, 536, 549, 562, 576, 590, 604, 619, 634, 649, 665, 681, 698, 715, 732, 750, 768, 787, 806, 825, 845, 866, 887, 909, 931, 953, 976, 1000, 1020, 1050, 1070, 1100, 1130, 1150, 1180, 1210, 1240, 1270, 1300, 1330, 1370, 1400, 1430, 1470, 1500, 1540, 1580, 1620, 1650, 1690, 1740, 1780, 1820, 1870, 1910, 1960, 2000, 2050, 2100, 2150, 2210, 2260, 2320, 2370, 2430, 2490, 2550, 2610, 2670, 2740, 2800, 2870, 2940, 3010, 3090, 3160, 3240, 3320, 3400, 3480, 3570, 3650, 3740, 3830, 3920, 4020, 4120, 4220, 4320, 4420, 4530, 4640, 4750, 4870, 4990, 5110, 5230, 5360, 5490, 5620, 5760, 5900, 6040, 6190, 6340, 6490, 6650, 6810, 6980, 7150, 7320, 7500, 7680, 7870, 8060, 8250, 8450, 8660, 8870, 9090, 9310, 9530, 9760, 10000, 10200, 10500, 10700, 11000, 11300, 11500, 11800, 12100, 12400, 12700, 13000, 13300, 13700, 14000, 14300, 14700, 15000, 15400, 15800, 16200, 16500, 16900, 17400, 17800, 18200, 18700, 19100, 19600, 20000, 20500, 21000, 21500, 22100, 22600, 23200, 23700, 24300, 24900, 25500, 26100, 26700, 27400, 28000, 28700, 29400, 30100, 30900, 31600, 32400, 33200, 34000, 34800, 35700, 36500, 37400, 38300, 39200, 40200, 41200, 42200, 43200, 44200, 45300, 46400, 47500, 48700, 49900);
+   r1 = "open"
+   r2 = "open"
+   r3 = "open"
+   r4 = "open"
+   r5 = "open"
+   r6 = "open"
+   r7 = "open"
+   r8 = "open"
+   r9 = "open"
+   vinzs = parseFloat(document.theForm.vinzs.value)
+   vinfs = parseFloat(document.theForm.vinfs.value)
+   voutzs = parseFloat(document.theForm.voutzs.value)
+   voutfs = parseFloat(document.theForm.voutfs.value)
+   vref = parseFloat(document.theForm.vref.value)
+   multiplier = parseFloat(document.theForm.multiplier.value)
+   m = (voutfs - voutzs) / (vinfs - vinzs)
+   b = voutzs - (m * vinzs)
+   document.theForm.m.value = m
+   document.theForm.b.value = b
+   if (m >= 1 && b > 0)
+   {
+      c = 1;
+      calculate1()
+   }
+   else if (m > 1 && b < 0)
+   {
+      c = 2;
+      calculate2()
+   }
+   else if (m <= - 1 && b > 0)
+   {
+      c = 3;
+      calculate3()
+   }
+   else if (m <= - 1 && b < 0)
+   {
+      c = 4;
+      calculate4()
+   }
+   else if (m > 1 && b == 0)
+   {
+      c = 5
+      calculate5()
+   }
+   else if (m <= - 1 && b == 0)
+   {
+      c = 6
+      calculate6()
+   }
+   else if (m < 1 && m > 0 && b > 0)
+   {
+      c = 7
+      calculate7()
+   }
+   else if (m <= 1 && m > 0 && b < 0)
+   {
+      c = 8
+      calculate8()
+   }
+   else if (m == 1 && b == 0)
+   {
+      c = 9
+      calculate9()
+   }
+   else if (m < 1 && m > 0 && b == 0)
+   {
+      c = 10
+      calculate10()
+   }
+   else if (m > - 1 && b > 0)
+   {
+      c = 11
+      calculate11()
+   }
+   else if (m > - 1 && b < 0)
+   {
+      c = 12
+      calculate12()
+   }
+   else if (m > - 1 && b == 0)
+   {
+      c = 13
+      calculate13()
+   }
+   document.theForm.c.value = c
+}
+function calculate1()
+{
+   min_diff = 1000000
+   r2_over_r1 = (vref * m) / b
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         r2_over_r1_test = res[j] / res[i]
+         diff = Math.abs(r2_over_r1 - r2_over_r1_test)
+         if (diff < min_diff)
+         {
+            min_diff = diff
+            r1 = res[i] * multiplier
+            r2 = res[j] * multiplier
+         }
+      }
+   }
+   min_diff = 1000000
+   r5_over_r7 = (m * (1 + (r1 / r2))) - 1
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         r5_over_r7_test = (res[i] / res[j])
+         diff = Math.abs(r5_over_r7 - r5_over_r7_test)
+         if (diff < min_diff)
+         {
+            min_diff = diff
+            r5 = res[i] * multiplier
+            r7 = res[j] * multiplier
+            r8 = 0
+            m_actual = (r2 / (r1 + r2)) * ((r5 + r7) / r7)
+            b_actual = vref * (r1 / (r1 + r2)) * ((r5 + r7) / r7)
+            b_fact = 1
+            output()
+         }
+      }
+   }
+}
+function calculate2()
+{
+   res = new Array (10, 10.2, 10.5, 10.7, 11, 11.3, 11.5, 11.8, 12.1, 12.4, 12.7, 13, 13.3, 13.7, 14, 14.3, 14.7, 15, 15.4, 15.8, 16.2, 16.5, 16.9, 17.4, 17.8, 18.2, 18.7, 19.1, 19.6, 20, 20.5, 21, 21.5, 22.1, 22.6, 23.2, 23.7, 24.3, 24.9, 25.5, 26.1, 26.7, 27.4, 28, 28.7, 29.4, 30.1, 30.9, 31.6, 32.4, 33.2, 34, 34.8, 35.7, 36.5, 37.4, 38.3, 39.2, 40.2, 41.2, 42.2, 43.2, 44.2, 45.3, 46.4, 47.5, 48.7, 49.9, 51.1, 52.3, 53.6, 54.9, 56.2, 57.6, 59, 60.4, 61.9, 63.4, 64.9, 66.5, 68.1, 69.8, 71.5, 73.2, 75, 76.8, 78.7, 80.6, 82.5, 84.5, 86.6, 88.7, 90.9, 93.1, 95.3, 97.6, 100, 102, 105, 107, 110, 113, 115, 118, 121, 124, 127, 130, 133, 137, 140, 143, 147, 150, 154, 158, 162, 165, 169, 174, 178, 182, 187, 191, 196, 200, 205, 210, 215, 221, 226, 232, 237, 243, 249, 255, 261, 267, 274, 280, 287, 294, 301, 309, 316, 324, 332, 340, 348, 357, 365, 374, 383, 392, 402, 412, 422, 432, 442, 453, 464, 475, 487, 499, 511, 523, 536, 549, 562, 576, 590, 604, 619, 634, 649, 665, 681, 698, 715, 732, 750, 768, 787, 806, 825, 845, 866, 887, 909, 931, 953, 976, 1000, 1020, 1050, 1070, 1100, 1130, 1150, 1180, 1210, 1240, 1270, 1300, 1330, 1370, 1400, 1430, 1470, 1500, 1540, 1580, 1620, 1650, 1690, 1740, 1780, 1820, 1870, 1910, 1960, 2000, 2050, 2100, 2150, 2210, 2260, 2320, 2370, 2430, 2490, 2550, 2610, 2670, 2740, 2800, 2870, 2940, 3010, 3090, 3160, 3240, 3320, 3400, 3480, 3570, 3650, 3740, 3830, 3920, 4020, 4120, 4220, 4320, 4420, 4530, 4640, 4750, 4870, 4990, 5110, 5230, 5360, 5490, 5620, 5760, 5900, 6040, 6190, 6340, 6490, 6650, 6810, 6980, 7150, 7320, 7500, 7680, 7870, 8060, 8250, 8450, 8660, 8870, 9090, 9310, 9530, 9760, 10000, 10200, 10500, 10700, 11000, 11300, 11500, 11800, 12100, 12400, 12700, 13000, 13300, 13700, 14000, 14300, 14700, 15000, 15400, 15800, 16200, 16500, 16900, 17400, 17800, 18200, 18700, 19100, 19600, 20000, 20500, 21000, 21500, 22100, 22600, 23200, 23700, 24300, 24900, 25500, 26100, 26700, 27400, 28000, 28700, 29400, 30100, 30900, 31600, 32400, 33200, 34000, 34800, 35700, 36500, 37400, 38300, 39200, 40200, 41200, 42200, 43200, 44200, 45300, 46400, 47500, 48700, 49900, 51100, 52300, 53600, 54900, 56200, 57600, 59000, 60400, 61900, 63400, 64900, 66500, 68100, 69800, 71500, 73200, 75000, 76800, 78700, 80600, 82500, 84500, 86600, 88700, 90900, 93100, 95300, 97600, 100000);
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      r5 = res[i]
+      r7_exact = (r5 / (m - 1))
+      min_diff_2 = 1000000
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         diff_2 = Math.abs(r7_exact - res[j])
+         if (diff_2 <= min_diff_2)
+         {
+            min_diff_2 = diff_2
+            r7 = res[j]
+         }
+      }
+      r8_exact = r7 / 100
+      min_diff_2 = 1000000
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         diff_2 = Math.abs(r8_exact - res[j])
+         if (diff_2 <= min_diff_2)
+         {
+            min_diff_2 = diff_2
+            r8 = res[j]
+         }
+      }
+      r6_exact = 1 - ((r8 * vref * r5) / (b * r7))
+      min_diff_2 = 1000000
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         diff_2 = Math.abs(r6_exact - res[j])
+         if (diff_2 <= min_diff_2)
+         {
+            min_diff_2 = diff_2
+            r6 = res[j]
+         }
+      }
+      r6_par_r8 = (r6 * r8) / (r6 + r8)
+      m_actual = (r5 + r7 + r6_par_r8) / (r7 + r6_par_r8)
+      b_actual = - 1 * vref * (r8 / (r6 + r8)) * (r5 / (r7 + r6_par_r8))
+      diff = Math.abs(m - m_actual)
+      if (diff <= min_diff)
+      {
+         min_diff = diff
+         r5 = res[i] * multiplier
+         r1 = 0
+         r6 = r6 * multiplier
+         r7 = r7 * multiplier
+         r8 = r8 * multiplier
+         b_fact = 1
+         output()
+      }
+   }
+}
+function calculate3()
+{
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      r5 = res[i]
+      r7_exact = r5 / Math.abs(m)
+      min_diff_2 = 1000000
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         diff_2 = Math.abs(r7_exact - res[j])
+         if (diff_2 <= min_diff_2)
+         {
+            min_diff_2 = diff_2
+            r7 = res[j]
+         }
+      }
+      m_actual = (r5 / r7) * - 1
+      diff = Math.abs(m - m_actual)
+      if (diff < min_diff)
+      {
+         min_diff = diff
+         r5 = res[i]
+         document.theForm.r5.value = r5 * multiplier
+         document.theForm.r7.value = r7 * multiplier
+         document.theForm.m_actual.value = m_actual
+      }
+   }
+   m_actual = parseFloat(document.theForm.m_actual.value)
+   r5 = document.theForm.r5.value
+   r7 = document.theForm.r7.value
+   b = voutzs - (m_actual * vinzs)
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         b_test = vref * (res[i] / (res[i] + res[j])) * (1 + (r5 / r7))
+         diff = Math.abs(b - b_test)
+         if (diff < min_diff)
+         {
+            min_diff = diff
+            r3 = res[i]
+            r2 = res[j]
+            b_actual = vref * (r3 / (r3 + r2)) * (1 + (r5 / r7))
+            r2 = r2 * multiplier
+            r3 = r3 * multiplier
+            b_fact = 1
+            output()
+         }
+      }
+   }
+}
+function calculate4()
+{
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      r5 = res[i]
+      r7_exact = r5 / Math.abs(m)
+      min_diff_2 = 1000000
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         diff_2 = Math.abs(r7_exact - res[j])
+         if (diff_2 <= min_diff_2)
+         {
+            min_diff_2 = diff_2
+            r7 = res[j]
+         }
+      }
+      m_actual = (r5 / r7) * - 1
+      diff = Math.abs(m - m_actual)
+      if (diff < min_diff)
+      {
+         min_diff = diff
+         r5 = res[i]
+         document.theForm.r5.value = r5 * multiplier
+         document.theForm.r7.value = r7 * multiplier
+         document.theForm.m_actual.value = m_actual
+      }
+   }
+   r5 = parseFloat(document.theForm.r5.value)
+   r7 = parseFloat(document.theForm.r7.value)
+   m_actual = parseFloat(document.theForm.m_actual.value)
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      b_actual = vref * (r5 / res[i])
+      diff = Math.abs(Math.abs(b) - b_actual)
+      if (diff < min_diff)
+      {
+         min_diff = diff
+         r4 = res[i]
+         r3 = 0
+         r9 = 0
+         b_fact = - 1
+         output()
+      }
+   }
+}
+function calculate5()
+{
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      r5 = res[i]
+      r7_exact = r5 / (Math.abs(m) - 1)
+      min_diff_2 = 1000000
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         diff_2 = Math.abs(r7_exact - res[j])
+         if (diff_2 <= min_diff_2)
+         {
+            min_diff_2 = diff_2
+            r7 = res[j]
+         }
+      }
+      m_actual = (r5 / r7) + 1
+      diff = Math.abs(m - m_actual)
+      if (diff < min_diff)
+      {
+         min_diff = diff
+         r5 = res[i]
+         document.theForm.r5.value = r5 * multiplier
+         document.theForm.r7.value = r7 * multiplier
+         document.theForm.m_actual.value = m_actual
+      }
+   }
+   r5 = parseFloat(document.theForm.r5.value)
+   r7 = parseFloat(document.theForm.r7.value)
+   r1 = 0
+   r8 = 0
+   b_actual = 0
+   b_fact = 0
+   m_actual = parseFloat(document.theForm.m_actual.value)
+   output()
+}
+function calculate6()
+{
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      r5 = res[i]
+      r7_exact = r5 / Math.abs(m)
+      min_diff_2 = 1000000
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         diff_2 = Math.abs(r7_exact - res[j])
+         if (diff_2 <= min_diff_2)
+         {
+            min_diff_2 = diff_2
+            r7 = res[j]
+         }
+      }
+      m_actual = (r5 / r7) * - 1
+      diff = Math.abs(m - m_actual)
+      if (diff < min_diff)
+      {
+         min_diff = diff
+         r5 = res[i]
+         document.theForm.r5.value = r5 * multiplier
+         document.theForm.r7.value = r7 * multiplier
+         document.theForm.m_actual.value = m_actual
+      }
+   }
+   r5 = parseFloat(document.theForm.r5.value)
+   r7 = parseFloat(document.theForm.r7.value)
+   r3 = 0
+   r9 = 0
+   b_actual = 0
+   b_fact = 0
+   m_actual = parseFloat(document.theForm.m_actual.value)
+   output()
+}
+function calculate7()
+{
+   r1 = parseFloat(document.theForm.r_seed.value)
+   one_over_r1 = 1 / r1
+   m_factor = (1 - m) / m
+   b_over_vref = b / vref
+   b_factor = b_over_vref / (1 - b_over_vref)
+   numerator = m_factor - b_factor
+   denominator = b_factor + 1
+   one_over_r3_exact = (one_over_r1 * numerator) / denominator
+   r3_exact = 1 / one_over_r3_exact
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      diff = Math.abs(r3_exact - res[i])
+      if (diff <= min_diff)
+      {
+         min_diff = diff;
+         r1 = r1
+         r3 = res[i] * multiplier
+         document.theForm.r3.value = r3
+         one_over_r3 = 1 / r3
+      }
+   }
+   one_over_r2_exact = (one_over_r1 * m_factor) - one_over_r3_exact
+   r2_exact = 1 / one_over_r2_exact
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      diff = Math.abs(r2_exact - res[i])
+      if (diff <= min_diff)
+      {
+         min_diff = diff;
+         r2 = res[i] * multiplier
+         document.theForm.r2.value = r2
+         one_over_r2 = 1 / r2
+      }
+   }
+   r1 = r1 * multiplier
+   r5 = 0
+   b_fact = 1
+   m_actual = (1 / r1) / (1 / r1 + 1 / r2 + 1 / r3)
+   b_actual = vref * (1 / r2) / (1 / r1 + 1 / r2 + 1 / r3)
+   output()
+}
+function calculate8()
+{
+   min_diff = 1000000
+   for (j = 0 ; j < res.length ; j ++ )
+   {
+      r5 = res[j]
+      for (i = 0 ; i < res.length ; i ++ )
+      {
+         r4 = res[i]
+         diff = Math.abs(b - ( - 1 * vref * r5 / r4))
+         if (diff <= min_diff)
+         {
+            min_diff = diff
+            b_actual = - 1 * vref * r5 / r4
+            document.theForm.r5.value = r5 * multiplier
+            document.theForm.r4.value = r4 * multiplier
+            document.theForm.b_actual.value = b_actual
+            gain = 1 + (r5 / r4)
+            m_adjusted = m / gain
+         }
+      }
+   }
+   r4 = parseFloat(document.theForm.r4.value)
+   r5 = parseFloat(document.theForm.r5.value)
+   b_actual = parseFloat(document.theForm.b_actual.value)
+   min_diff = 1000000
+   for (j = 0 ; j < res.length ; j ++ )
+   {
+      r1 = res[j]
+      for (i = 0 ; i < res.length ; i ++ )
+      {
+         r3 = res[i]
+         diff = Math.abs(m_adjusted - (r3 / (r1 + r3)))
+         if (diff <= min_diff)
+         {
+            min_diff = diff
+            m_actual = (r3 / (r1 + r3)) * gain
+            b_fact = 1
+            r3 = r3 * multiplier
+            r1 = r1 * multiplier
+            output()
+         }
+      }
+   }
+}
+function calculate9()
+{
+   r1 = 0
+   r5 = 0
+   m_actual = 1
+   b_actual = 0
+   b_fact = 1
+   output()
+}
+function calculate10()
+{
+   min_diff = 1000000
+   if (m == .5) alert ("All that is required" + '\n' + "for m = 0.5" + '\n' + "is that R1 = R3");
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         test_ratio = res[j] / (res[i] + res[j])
+         diff = Math.abs(m - test_ratio)
+         if (diff <= min_diff)
+         {
+            min_diff = diff
+            r1 = res[i] * multiplier
+            r3 = res[j] * multiplier
+            r5 = 0
+            m_actual = r3 / (r1 + r3)
+            b_actual = 0
+            b_fact = 1
+            output()
+         }
+      }
+   }
+}
+
+function calculate11()
+{
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         gain = (res[i] * res[j]) / (rin[i] * (rin[i] + (2 * res[j])))
+         diff = Math.abs(( - 1 * m) - gain)
+         if (diff <= min_diff)
+         {
+            min_diff = diff;
+            r5 = res[i] * multiplier
+            r7 = rin[i] * multiplier
+            r9 = rin[i] * multiplier
+            r8 = res[j] * multiplier
+            m_actual = gain * - 1
+         }
+      }
+   }
+   offset_gain = 1 + (r5 / (r7 + ((r7 * r8 ) / (r7 + r8 ))))
+   ratio = b / (offset_gain * vref)
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         test_ratio = res[j] / (res[i] + res[j])
+         diff = Math.abs(ratio - test_ratio)
+         if (diff <= min_diff)
+         {
+            min_diff = diff
+            r2 = res[i] * multiplier
+            r3 = res[j] * multiplier
+            b_actual = (r3 / (r2 + r3)) * vref * offset_gain
+            b_fact = 1
+            output()
+         }
+      }
+   }
+}
+function calculate12()
+{
+   res2 = new Array (100, 102, 105, 107, 110, 113, 115, 118, 121, 124, 127, 130, 133, 137, 140, 143, 147, 150, 154, 158, 162, 165, 169, 174, 178, 182, 187, 191, 196, 200, 205, 210, 215, 221, 226, 232, 237, 243, 249, 255, 261, 267, 274, 280, 287, 294, 301, 309, 316, 324, 332, 340, 348, 357, 365, 374, 383, 392, 402, 412, 422, 432, 442, 453, 464, 475, 487, 499, 511, 523, 536, 549, 562, 576, 590, 604, 619, 634, 649, 665, 681, 698, 715, 732, 750, 768, 787, 806, 825, 845, 866, 887, 909, 931, 953, 976, 1000, 1020, 1050, 1070, 1100, 1130, 1150, 1180, 1210, 1240, 1270, 1300, 1330, 1370, 1400, 1430, 1470, 1500, 1540, 1580, 1620, 1650, 1690, 1740, 1780, 1820, 1870, 1910, 1960, 2000, 2050, 2100, 2150, 2210, 2260, 2320, 2370, 2430, 2490, 2550, 2610, 2670, 2740, 2800, 2870, 2940, 3010, 3090, 3160, 3240, 3320, 3400, 3480, 3570, 3650, 3740, 3830, 3920, 4020, 4120, 4220, 4320, 4420, 4530, 4640, 4750, 4870, 4990, 5110, 5230, 5360, 5490, 5620, 5760, 5900, 6040, 6190, 6340, 6490, 6650, 6810, 6980, 7150, 7320, 7500, 7680, 7870, 8060, 8250, 8450, 8660, 8870, 9090, 9310, 9530, 9760, 10000, 10200, 10500, 10700, 11000, 11300, 11500, 11800, 12100, 12400, 12700, 13000, 13300, 13700, 14000, 14300, 14700, 15000, 15400, 15800, 16200, 16500, 16900, 17400, 17800, 18200, 18700, 19100, 19600, 20000, 20500, 21000, 21500, 22100, 22600, 23200, 23700, 24300, 24900, 25500, 26100, 26700, 27400, 28000, 28700, 29400, 30100, 30900, 31600, 32400, 33200, 34000, 34800, 35700, 36500, 37400, 38300, 39200, 40200, 41200, 42200, 43200, 44200, 45300, 46400, 47500, 48700, 49900, 51100, 52300, 53600, 54900, 56200, 57600, 59000, 60400, 61900, 63400, 64900, 66500, 68100, 69800, 71500, 73200, 75000, 76800, 78700, 80600, 82500, 84500, 86600, 88700, 90900, 93100, 95300, 97600, 100000, 102000, 105000, 107000, 110000, 113000, 115000, 118000, 121000, 124000, 127000, 130000, 133000, 137000, 140000, 143000, 147000, 150000, 154000, 158000, 162000, 165000, 169000, 174000, 178000, 182000, 187000, 191000, 196000, 200000, 205000, 210000, 215000, 221000, 226000, 232000, 237000, 243000, 249000, 255000, 261000, 267000, 274000, 280000, 287000, 294000, 301000, 309000, 316000, 324000, 332000, 340000, 348000, 357000, 365000, 374000, 383000, 392000, 402000, 412000, 422000, 432000, 442000, 453000, 464000, 475000, 487000, 499000, 511000, 523000, 536000, 549000, 562000, 576000, 590000, 604000, 619000, 634000, 649000, 665000, 681000, 698000, 715000, 732000, 750000, 768000, 787000, 806000, 825000, 845000, 866000, 887000, 909000, 931000, 953000, 976000, 1000000, 1020000, 1050000, 1070000, 1100000, 1130000, 1150000, 1180000, 121000, 124000, 127000, 130000, 133000, 137000, 140000, 143000, 147000, 150000, 154000, 158000, 162000, 165000, 169000, 174000, 178000, 182000, 187000, 191000, 1960000, 200000, 2050000, 2100000, 2150000, 2210000, 2260000, 2320000, 2370000, 2430000, 2490000, 2550000, 2610000, 2670000, 2740000, 2800000, 2870000, 2940000, 3010000, 3090000, 3160000, 3240000, 3320000, 3400000, 3480000, 3570000, 3650000, 3740000, 3830000, 3920000, 4020000, 4120000, 4220000, 4320000, 4420000, 4530000, 4640000, 4750000, 4870000, 4990000, 5110000, 5230000, 5360000, 5490000, 5620000, 5760000, 5900000, 6040000, 6190000, 6340000, 6490000, 6650000, 6810000, 6980000, 7150000, 7320000, 7500000, 7680000, 7870000, 8060000, 8250000, 8450000, 8660000, 8870000, 9090000, 9310000, 9530000, 9760000, 10000000);
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         gain = (res[i] * res[j]) / (rin[i] * (rin[i] + (2 * res[j])))
+         diff = Math.abs(( - 1 * m) - gain)
+         if (diff <= min_diff)
+         {
+            min_diff = diff;
+            r5 = res[i] * multiplier
+            r9 = rin[i] * multiplier
+            r7 = rin[i] * multiplier
+            r8 = res[j] * multiplier
+            m_actual = gain * - 1
+            document.theForm.m_actual.value = m_actual
+         }
+      }
+   }
+   min_diff = 1000000
+   for (i = 0 ; i < res2.length ; i ++ )
+   {
+      test_offset = ( - 1 * vref * r5) / res2[i]
+      diff = Math.abs(b - test_offset)
+      if (diff <= min_diff)
+      {
+         min_diff = diff
+         r4 = res2[i]
+         b_actual = - 1 * (r5 / res2[i]) * vref
+         b_fact = 1
+         output()
+      }
+   }
+}
+function calculate13()
+{
+   min_diff = 1000000
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      for (j = 0 ; j < res.length ; j ++ )
+      {
+         gain = (res[i] * res[j]) / (rin[i] * (rin[i] + (2 * res[j])))
+         diff = Math.abs(( - 1 * m) - gain)
+         if (diff <= min_diff)
+         {
+            min_diff = diff;
+            m_actual = gain * - 1
+            b_actual = 0
+            b_fact = 1
+            r3 = 0
+            r5 = res[i] * multiplier
+            r7 = rin[i] * multiplier
+            r9 = rin[i] * multiplier
+            r8 = res[j] * multiplier
+            output()
+         }
+      }
+   }
+}
+function output()
+{
+   voutzs_actual = (m_actual * vinzs) + (b_actual * b_fact)
+   voutfs_actual = (m_actual * vinfs) + (b_actual * b_fact)
+   error_zs = (voutzs_actual - voutzs) / voutzs * 100
+   error_fs = (voutfs_actual - voutfs) / voutfs * 100
+   document.theForm.m_actual.value = m_actual
+   document.theForm.b_actual.value = b_actual * b_fact
+   document.theForm.r1.value = r1
+   document.theForm.r2.value = r2
+   document.theForm.r3.value = r3
+   document.theForm.r4.value = r4
+   document.theForm.r5.value = r5
+   document.theForm.r7.value = r7
+   document.theForm.r6.value = r6
+   document.theForm.r8.value = r8
+   document.theForm.r9.value = r9
+   document.theForm.voutzs_actual.value = voutzs_actual
+   document.theForm.voutfs_actual.value = voutfs_actual
+   document.theForm.error_zs.value = error_zs
+   document.theForm.error_fs.value = error_fs
+   document.r_img.src = NewImg[c - 1];
+}
+</SCRIPT>
+</HEAD>
+<BODY bgcolor="White">
+<FONT face="arial">
+<h1>Op Amp Expert</h1>
+<P>DC coupled op amp applications are concerned about DC offset voltage as well as gain.  Most of the time,
+it is possible to get gain and offset from a single op amp stage.
+
+<p>Enter the input voltage range, the output voltage range, and the value of the voltage reference in your design. If you don't like the range of resistor values selected, change the multiplier.
+
+<p>Case 7 was complex enough that it requires a seed resistor value.  Just about any value of seed resistor will get you within 1% on gain and offset, but trying other ones out might get you within half a percent on one or the other, or even both.
+
+<FORM name="theForm">
+<TABLE border="0"><TR><TD>
+<TABLE cellspacing="0" cellpadding="1" border="1" bgcolor="#ccffcc"><TR><TD>
+<TABLE cellspacing="0" cellpadding="3" border="0">
+<tr><TD>&nbsp;</TD><th>Vin</th><th>Vout</th>
+<TR>
+   <TD align="right"><B>Zero Scale:</B></TD>
+   <TD><INPUT name="vinzs" value=".01" size="7"></TD>
+   <TD><INPUT name="voutzs" value="1" size="7"></TD>
+</tr>
+<TR><TD align="right"><B>Full Scale:</B></TD>
+   <TD><INPUT name="vinfs" value="1" size="7"></TD>
+   <TD><INPUT name="voutfs" value="4.5" size="7"></TD>
+</tr>
+<tr><TD>&nbsp;</TD><th>Vref</th><th>Multiplier</th>
+<tr>
+   <TD>&nbsp;</TD>
+   <TD><INPUT name="vref" value="5" size="7"></TD>
+   <TD>
+      <SELECT name="multiplier">
+         <OPTION value=".0001">0.0001</OPTION>
+         <OPTION value=".001">0.001</OPTION>
+         <OPTION value=".01">0.01</OPTION>
+         <OPTION value=".1">0.1</OPTION>
+         <OPTION value="1" selected="">1</OPTION>
+         <OPTION value="10">10</OPTION>
+         <OPTION value="100">100</OPTION>
+         <OPTION value="1000">1000</OPTION>
+         <OPTION value="10000">10000</OPTION>
+      </SELECT>
+   </TD>
+</TR>
+<TR>
+  <TD align="right"><B>Seed Value:</B></TD>
+  <TD>
+  <SELECT name="r_seed">
+  <OPTION value="1000">1000</OPTION>
+  <OPTION value="1020" selected="">1020</OPTION>
+  <OPTION value="1050">1050</OPTION>
+  <OPTION value="1070">1070</OPTION>
+  <OPTION value="1100">1100</OPTION>
+  <OPTION value="1130">1130</OPTION>
+  <OPTION value="1150">1150</OPTION>
+  <OPTION value="1180">1180</OPTION>
+  <OPTION value="1210">1210</OPTION>
+  <OPTION value="1240">1240</OPTION>
+  <OPTION value="1270">1270</OPTION>
+  <OPTION value="1300">1300</OPTION>
+  <OPTION value="1330">1330</OPTION>
+  <OPTION value="1370">1370</OPTION>
+  <OPTION value="1400">1400</OPTION>
+  <OPTION value="1430">1430</OPTION>
+  <OPTION value="1470">1470</OPTION>
+  <OPTION value="1500">1500</OPTION>
+  <OPTION value="1540">1540</OPTION>
+  <OPTION value="1580">1580</OPTION>
+  <OPTION value="1620">1620</OPTION>
+  <OPTION value="1650">1650</OPTION>
+  <OPTION value="1690">1690</OPTION>
+  <OPTION value="1740">1740</OPTION>
+  <OPTION value="1780">1780</OPTION>
+  <OPTION value="1820">1820</OPTION>
+  <OPTION value="1870">1870</OPTION>
+  <OPTION value="1910">1910</OPTION>
+  <OPTION value="1960">1960</OPTION>
+  <OPTION value="2000">2000</OPTION>
+  <OPTION value="2050">2050</OPTION>
+  <OPTION value="2100">2100</OPTION>
+  <OPTION value="2150">2150</OPTION>
+  <OPTION value="2210">2210</OPTION>
+  <OPTION value="2260">2260</OPTION>
+  <OPTION value="2320">2320</OPTION>
+  <OPTION value="2370">2370</OPTION>
+  <OPTION value="2430">2430</OPTION>
+  <OPTION value="2490">2490</OPTION>
+  <OPTION value="2550">2550</OPTION>
+  <OPTION value="2610">2610</OPTION>
+  <OPTION value="2670">2670</OPTION>
+  <OPTION value="2740">2740</OPTION>
+  <OPTION value="2800">2800</OPTION>
+  <OPTION value="2870">2870</OPTION>
+  <OPTION value="2940">2940</OPTION>
+  <OPTION value="3010">3010</OPTION>
+  <OPTION value="3090">3090</OPTION>
+  <OPTION value="3160">3160</OPTION>
+  <OPTION value="3240">3240</OPTION>
+  <OPTION value="3320">3320</OPTION>
+  <OPTION value="3400">3400</OPTION>
+  <OPTION value="3480">3480</OPTION>
+  <OPTION value="3570">3570</OPTION>
+  <OPTION value="3650">3650</OPTION>
+  <OPTION value="3740">3740</OPTION>
+  <OPTION value="3830">3830</OPTION>
+  <OPTION value="3920">3920</OPTION>
+  <OPTION value="4020">4020</OPTION>
+  <OPTION value="4120">4120</OPTION>
+  <OPTION value="4220">4220</OPTION>
+  <OPTION value="4320">4320</OPTION>
+  <OPTION value="4420">4420</OPTION>
+  <OPTION value="4530">4530</OPTION>
+  <OPTION value="4640">4640</OPTION>
+  <OPTION value="4750">4750</OPTION>
+  <OPTION value="4870">4870</OPTION>
+  <OPTION value="4990">4990</OPTION>
+  <OPTION value="5110">5110</OPTION>
+  <OPTION value="5230">5230</OPTION>
+  <OPTION value="5360">5360</OPTION>
+  <OPTION value="5490">5490</OPTION>
+  <OPTION value="5620">5620</OPTION>
+  <OPTION value="5760">5760</OPTION>
+  <OPTION value="5900">5900</OPTION>
+  <OPTION value="6040">6040</OPTION>
+  <OPTION value="6190">6190</OPTION>
+  <OPTION value="6340">6340</OPTION>
+  <OPTION value="6490">6490</OPTION>
+  <OPTION value="6650">6650</OPTION>
+  <OPTION value="6810">6810</OPTION>
+  <OPTION value="6980">6980</OPTION>
+  <OPTION value="7150">7150</OPTION>
+  <OPTION value="7320">7320</OPTION>
+  <OPTION value="7500">7500</OPTION>
+  <OPTION value="7680">7680</OPTION>
+  <OPTION value="7870">7870</OPTION>
+  <OPTION value="8060">8060</OPTION>
+  <OPTION value="8250">8250</OPTION>
+  <OPTION value="8450">8450</OPTION>
+  <OPTION value="8660">8660</OPTION>
+  <OPTION value="8870">8870</OPTION>
+  <OPTION value="9090">9090</OPTION>
+  <OPTION value="9310">9310</OPTION>
+  <OPTION value="9530">9530</OPTION>
+  <OPTION value="9760">9760</OPTION>
+  </SELECT>
+  </TD>
+  <td><b> for Case 7 only!</b></td>
+</tr>
+<TR><TD>&nbsp;</TD></TR>
+<TR>
+   <TD>&nbsp;</TD>
+   <TD><INPUT type="button" value="Calculate" onclick="calculate_case()"></TD>
+   <td><INPUT type="button" value="Test Case:" onclick="load_test_case()"></td>
+      <TD>
+      <SELECT name="test_case">
+         <OPTION value="1" selected="">1</OPTION>
+         <OPTION value="2">2</OPTION>
+         <OPTION value="3">3</OPTION>
+         <OPTION value="4">4</OPTION>
+         <OPTION value="5">5</OPTION>
+         <OPTION value="6">6</OPTION>
+         <OPTION value="7">7</OPTION>
+         <OPTION value="8">8</OPTION>
+         <OPTION value="9">9</OPTION>
+         <OPTION value="10">10</OPTION>
+         <OPTION value="11">11</OPTION>
+         <OPTION value="12">12</OPTION>
+         <OPTION value="13">13</OPTION>
+      </SELECT>
+   </TD>
+</TR>
+<TR><TD>&nbsp;</TD></TR>
+<TR>
+   <TD align="right"><B>Gain (m):</B></TD>
+   <TD><INPUT name="m" size="7"></TD>
+   <TD align="right"><B>Case:</B></TD>
+   <TD><INPUT name="c" size="7"></TD>
+</tr>
+<tr>
+   <TD align="right"><B>Offset (b):</B></TD>
+   <TD><INPUT name="b" size="7"></TD>
+</TR>
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD align="right"><B>R1:</B></TD><TD><INPUT name="r1" size="7"></TD><TD align="right"><B>R6:</B></TD><TD><INPUT name="r6" size="7"></TD></TR>
+<TR><TD align="right"><B>R2:</B></TD><TD><INPUT name="r2" size="7"></TD><TD align="right"><B>R7:</B></TD><TD><INPUT name="r7" size="7"></TD></TR>
+<TR><TD align="right"><B>R3:</B></TD><TD><INPUT name="r3" size="7"></TD><TD align="right"><B>R8:</B></TD><TD><INPUT name="r8" size="7"></TD></TR>
+<TR><TD align="right"><B>R4:</B></TD><TD><INPUT name="r4" size="7"></TD><TD align="right"><B>R9:</B></TD><TD><INPUT name="r9" size="7"></TD></TR>
+<TR><TD align="right"><B>R5:</B></TD><TD><INPUT name="r5" size="7"></TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD><B>Actual</B></TD><TD><B>Error (%)</B></TD></TR>
+<TR><TD align="right"><B>Gain (m):</B></TD><TD><INPUT name="m_actual" size="7"></TD></TR>
+<TR><TD align="right"><B>Offset (b):</B></TD><TD><INPUT name="b_actual" size="7"></TD></TR>
+<TR><TD align="right"><B>Vout Zero Scale:</B></TD><TD><INPUT name="voutzs_actual" size="7"></TD><TD><INPUT name="error_zs" size="7"></TD></TR>
+<TR><TD align="right"><B>Vout Full Scale:</B></TD><TD><INPUT name="voutfs_actual" size="7"></TD><TD><INPUT name="error_fs" size="7"></TD></TR>
+</TABLE>
+</TD></TR></TABLE>
+</TD>
+<td align="center"><img src="case.gif" tppabs="http://booksite.elsevier.com/9780123914958/content/gain_offset/case.gif" width="463" height="453"><br><img src="case1_equ_a.gif" tppabs="http://booksite.elsevier.com/9780123914958/content/gain_offset/case1_equ_a.gif" name="r_img" /></td>
+</TR></TABLE>
+</FORM>
+</FONT>
+</BODY>
+</HTML>

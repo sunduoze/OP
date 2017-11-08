@@ -1,0 +1,1488 @@
+ /* CSS Document */
+/*nee companion2col_all_041212.css  -- plus styles.css from - http://store.elsevier.com/ui/css/styles.css*/
+/*nee companion2col_june2012_plus_styles_a.css*/
+/* 2013-11-22 JWS	added minimal display styles */
+/* 2014-02-18 JWS	added sup, sub, .sm, table.sm td, .footnote, .note, .btn* */
+/* 2014-09-05 JWS	added input[email] */
+/* 2014-11-10 JWS	added a.btn_ rules */
+/* 2015-04-07 JWS	added rules for book.dtd content */
+/* 2015-05-19 JWS	added IC toolbar colors */
+/* 2015-12-15 JWS	added rtmp_player rules for FP6 */
+/* 2017-01-10 JWS	added Zoomify styling
+/* 2017-01-27 JWS	booksite calls are now protocol agnostic; some Elsevier.com components
+/* 2017-03-31 JWS	expandoNav added from HHS.css
+/******************************/
+
+/*from styles.css*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, strong, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var, u, i, bold, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /*font-size: 100%;*/
+	font-size: 1em;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+   /* line-height: 1.11em;*/
+	line-height: 1.166em;
+}
+
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+
+/*General*/
+html, body {
+    background-color:#fff;
+    font-family: Helvetica, Arial, sans-serif; /*Arial*/
+    color:#666;
+	/*font-size: 1em;
+    line-height:15px;
+    margin:0px;
+    padding:0px;*/
+    width:100%;
+    height:100%;
+}
+body { /*needed for fixed-width centering - text-align: center - Do NOT change this*/
+	text-align: center;
+}
+
+/* reset removed these */
+em {
+	font-style:italic;
+}
+strong {
+	font-weight:bold;
+}
+sup {
+	vertical-align:super;
+}
+sub {
+	vertical-align:sub;
+}
+sup, sub, .sm, table.sm td, .footnote, .note {
+	font-size:60%;
+}
+
+.left { float: left !important; }
+.right { float: right !important; }
+.nofloat { float: none !important; }
+.bold {font-weight: bold !important;}
+.notbold {font-weight: normal !important;}
+.nomargin { margin:0  !important}
+.nopadding { padding:0  !important}
+.noborder { border:0  !important}
+.nobackground { background:none !important }
+.nominheight { min-height:0 !important; }
+.uppercase { text-transform:uppercase !important; }
+.underline { text-decoration:underline !important; }
+.relative {	position:relative !important; }
+.center { text-align:center !important; }
+.blue { color:#22426b !important; }
+.darkgrey { color:#333 !important; }
+.grey { color:#999 !important; }
+.mediumgrey { color:#666 !important; }
+.black { color:#000 !important; }
+.hidden { display: none !important; }
+
+ul, ol { padding-left: 16px; }
+ul.bulletlist {
+	list-style:square;
+}
+ol.nrlist {
+	list-style:decimal;
+	padding-left:19px;
+}
+
+a { color:#104284; text-decoration:none; }
+a:hover { color:#165bb3; text-decoration:underline; }
+a.nounderline:hover { text-decoration:none; }
+a:focus { -moz-outline-style: none; }
+:focus { outline: 0; }
+/*end from styles.css*/
+
+/*****/
+#wrapper { /*needed for fixed-width centering*/
+	position: relative;
+	/*bg_innercontainer.png*/ /*this fills in the footer image - don't ask me why*/
+	padding-bottom:25%; /* scrolls bottom of content to middle of screen */
+}
+.headerWrapper {
+	background: url("bg_header_2x155.gif")/*tpa=http://booksite.elsevier.com/global_content/store_companion/graphics/bg_header_2x155.gif*/ #fff repeat-x 50% 0;  /*actually 157 pixels high; bg_header_2x160.gif*/
+	padding:0px;
+
+}
+/*.dottedline {
+    background-color:#e5e5e5;
+    height:1px;
+    line-height:1px;
+    border:0;
+    clear:both;
+    margin:0;
+}
+.dottedline {
+    background:url('//booksite.elsevier.com/global_content/store_companion/ui/images/bg_line_dotted.gif') repeat-x;
+    height:2px;
+}*/
+/***/
+/*h1, h2, h3, h4 {
+    color:#192432;
+    margin-bottom: 5px;
+}
+h1,
+.h1 {
+    font-size:30px;
+    line-height:30px;
+}
+h2,
+.h2 {
+    font-size:22px;
+    line-height:22px;
+}
+h3,
+.h3 {
+    font-size:16px;
+    line-height:16px;
+}
+h4,
+.h4 {
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom: 14px;
+}*/
+/***** header *****/
+#header {
+	margin-top: 0px;
+	margin: 0px auto 0px auto;
+	width: 1020px;
+	height: 155px;
+}
+/***login -- logout***/
+#details {
+	font-family: Helvetica, Arial, sans-serif; /*Arial*/
+	font-size:10px;
+}
+#userStatus {
+border:thick;
+}
+#loginBar {
+	margin-top: 0px;
+	height: 37px;  /*30px*/
+	background-color: #fff;
+}
+span.login_left {
+	float: left;
+	margin: 5px 10px 0px 15px;
+	padding: 5px 2px 5px 2px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: .78em; /*.90em - .68em*/
+	font-weight: lighter;
+}
+span.login_right {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: .78em; /*.90em - .68em*/
+	font-weight: normal;
+	position: relative;
+	float: right;
+	margin: 5px 15px 0px 15px;
+	padding: 5px 2px 5px 2px;
+}
+#loginBar a {
+	color: #104284;
+	padding: 4px 5px 3px 4px;
+	text-decoration: none;
+	font-weight: lighter;
+}
+#loginBar a:hover {
+	color:#165bb3;
+	text-decoration: underline;
+}
+.loginForm {
+	display:none;
+	z-index:20;
+	position: absolute;
+	border:solid 2px #4d4d4d;
+	padding: 23px 30px 19px;
+	background-color:#ffffff;
+	/*right:-157px;
+	top: 18px;
+	width: 360px;*/
+}
+.PersonForm input[type='submit'] {
+	min-width:46px;
+	padding:3px 9px 2px;
+	border:0px;
+	color:#ffffff;
+	background-color:#333333;
+	font-size:.95em;
+	font-weight:bold;
+}
+.PersonForm input[type='submit']:hover {
+	background-color:#165bb3;
+}
+/*do not display register link because this is a combined log in/register form */
+.content #loginForm .PersonForm a {
+	display:none;
+}
+/*****/
+#top_wrapper {  /*imprint logo - companion materials - author: title*/
+	clear:both;
+	position: relative;
+	background-color: #f4f4f4;
+}
+#imprint_logo {
+	float: left;
+	margin-left: 0;
+	width:120px;
+	padding: 2px 0px;
+	background-color: #fff;
+}
+.elsevier { /*elsevier tree logo*/
+	margin-left: 5px;
+}
+#companion_head {  /*COMPANION MATERIALS*/
+	float: left;
+	width: 900px;
+	height: 65px;
+	background-color: #192432;
+}
+h2.companion_materials { /*COMPANION MATERIALS*/
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 1.92em; /* match 71px - companion materials*/
+	font-weight:lighter;
+	text-align: left;
+	margin-left: 10px;
+	padding-top: 15px;
+	padding-bottom: 2px;
+	color: #dfdfdf;
+	text-transform:uppercase;
+}
+/***/
+#author_title {
+float: left;
+width: 900px;
+height: 49px; /*50px*/
+text-align:left;
+background-color: #f4f4f4;
+}
+#header h1 { /*author:title*/
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 1.40em; /*1.25em -- adjust this size if the title is too long - try 1.22em or 1.16em or 1.12em*/
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 15px; /*20px*/
+	margin-bottom: -15px;
+	width:740px; /* makes space to right for addthis */
+	color: #241e20;
+}
+#author_title h1 a {
+	color: #241e20;
+	text-decoration:none;
+}
+/*social media icons*/
+.addthis_button {
+	float:right;
+	margin-top: -7px;
+	margin-right: 25px;
+}
+/***** end header *****/
+
+#contentWrapper {
+	/* float: left; removed when recentering */
+	margin: 0px auto 0px auto;
+	width: 1020px; /*width: 100%; either one works*/
+	overflow: hidden; /*hides the sidebar bottom padding*/
+	background: url("template_background1020white.gif")/*tpa=http://booksite.elsevier.com/global_content/store_companion/graphics/template_background1020white.gif*/ repeat-y; //creates border between .navigation and .content
+}
+/***** start navigation *****/
+.navigation {  /*leftSidebar*/
+	clear: both;
+	float: left;
+	width: 205px;
+	padding: 0px 0px 500px 0px;
+	margin-bottom: -500px;
+	text-align:left;
+}
+/***accordion menu***/
+#firstpane.menu_list {
+	margin-top: 10px;
+	margin-bottom: 2em;
+}
+.menu_list {
+	width: 205px;
+}
+.menu_head, .menu_item {
+	padding: 5px 10px 5px 10px;
+	margin: 1px 1px 3px 1px;
+	cursor: pointer;
+	position: relative;
+	font-size: .75em;
+	font-weight:normal;
+	background: #fff url("left.png")/*tpa=http://booksite.elsevier.com/global_content/accordion_menu/left.png*/ center right no-repeat;
+	border-bottom: 1px solid #aeaeae;
+}
+.menu_head.open {
+	background-image: url("down.png")/*tpa=http://booksite.elsevier.com/global_content/accordion_menu/down.png*/;
+}
+.menu_head .index {
+	margin-left:0.25em;
+	font-size:125%;
+	font-weight:bold;
+}
+.menu_item {
+	background:inherit;
+}
+.menu_body {
+	display:none;
+}
+.menu_body a {
+	display:block;
+	color:#414141;
+	background-color:#f7f7f7;
+	border-bottom: 1px solid #aeaeae;
+	font-weight:normal;
+	text-decoration:none;
+	text-align: left;
+	font-size: .75em;
+	padding: 5px 5px 5px 16px;
+}
+.menu_body a:hover {
+	color: #414141;
+	text-decoration:underline;
+}
+/*****/
+/***** end navigation *****/
+/***** start content *****/
+.content {
+	float: left;
+	padding: 5px 0px 20px 0px;
+	width: 815px; /*815 no border*/
+}
+.content > * {
+	margin-left:20px;
+}
+.content * {
+	text-align:left;
+	color:#1f3041;
+}
+
+/* these are duplicated from styles.css section to get correct color on content links */
+.content a {
+	color:#104284;
+}
+.content a:hover {
+	color:#165bb3;
+}
+
+.home_left { /*home - welcome text - cover image*/
+	float: left;
+	width: 604px; /* 605 remain, but home_right wraps beneath at that amount */
+	margin-top:10px;
+}
+.home_right { /*home - promo items*/
+	float: left;
+	width: 170px; /*172 (no border) should be 175 - wassup i.e.*/
+	padding: 10px 0px 500px 0px;
+	margin-bottom: -500px;
+	border-left: 1px dotted #edecec;
+}
+.content h2.pagetitle {  /*page title*/
+	font-size: 1.10em;
+	font-weight: normal;
+	color: #192432;  /*#1f3041*/
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 6px;
+}
+.welcome { /*home page - Welcome*/
+	text-align: left;
+}
+p.product { /*cover image */
+	position:relative;
+	float: left;
+	width: 165px;
+	max-width: 170px;
+	margin-left:20px;
+	margin-bottom:1em;
+	padding: 5px 0px 10px 0px;
+	text-align:center;
+}
+/*TC added Jan 2013 per task #12438 - change the "Buy this book" link to a button*/
+p.product a.buybutton { /*Buy this book*/
+	width: 100px;
+	padding: 3px; /*3px 5px 3px 5px*/
+	margin: 0 auto;
+	color: #fff;
+	background-color: #232323;
+	display:block;
+	font-size: .9em;
+	font-weight: normal;
+	text-decoration: none;
+	text-align: center;
+}
+p.product a.buybutton:hover {
+	color: #fff;
+	background-color: #165bb3; /*link hover color from store template*/
+}
+/*end TC added Jan 2013 per task #12438 - change the "Buy this book" link to a button*/
+span.author { /*author photo */
+	position:relative;
+	float:right;
+	width: 165px;
+	max-width: 175px;
+	padding: 0px 15px 10px 0px;
+	text-align:center;
+}
+
+ol, ol.alldecimal ol {
+	list-style-type:decimal;
+}
+
+ol ol {
+	list-style-type:lower-alpha;
+}
+
+ol ol ol {
+	list-style-type:upper-roman;
+}
+
+ol ol ol ol {
+	list-style-type:lower-roman;
+}
+
+ul, ul ol ul, ul ul ol ul, ul ul ul ul {
+	list-style-type:square;
+	color: #666;
+}
+
+* html ul {
+	font-size: .9em;
+	color: #1f3041;
+}
+
+ul ul, ul ol ul ul, ul ul ol ul ul {
+	list-style-type:disc;
+}
+
+ul ul ul, ul ol ul ul ul, ul ul ol ul ul ul {
+	list-style-type:circle;
+}
+
+ul.unbulleted {
+	list-style-type:none;
+}
+
+
+ul li {
+	font-size: .95em;
+	color: #1f3041;
+	margin-left: 25px;
+	margin-right: 20px;
+}
+ul li + li, .expandoNav li + li {
+	margin-top: .5em; /*easyread*/
+}
+dl {
+	color: #1f3041;
+	margin-right: 20px;
+}
+.content dl, .content ol, .content ul{
+	margin-top:.5em;
+	margin-bottom:.5em;
+}
+* html dl {
+	margin-left: -20px;
+}
+.content dl dt + dt, .content dl dd + dd {
+	margin-top:.5em;
+}
+dl dd {
+	font-size: .95em;
+	color: #1f3041;
+	margin-left: 45px;
+	margin-bottom:.5em; /*easyread*/
+}
+ol {
+	color: #1f3041;
+}
+* html ol {
+	font-size: .9em;
+	color: #1f3041;
+}
+ol li {
+	font-size: .95em;
+	color: #1f3041;
+
+	margin-left: 20px;
+	margin-right: 20px;
+}
+ol li + li {
+	margin-top: .5em; /*easyread*/
+}
+
+/***/
+.promo_box { /*promo items*/
+	margin-top:5px;
+	background-color: #fff;
+	padding-bottom: 10px;
+}
+.promo_box + .promo_box  {
+	margin-top:20px;
+}
+.content h3.promo_head { /*box promo items*/
+	margin-top:5px;
+	margin-left: 0px;
+	font-size: .70em;
+	font-weight: bold;
+	background:#192432;
+	color: #fff;
+	text-align: center;
+	-webkit-border-radius: 3px 3px 0px 0px;
+	-moz-border-radius: 3px 3px 0px 0px;
+	border-radius: 3px 3px 0px 0px;
+}
+.content p.promo_text { /*box promo items*/
+	margin-top:3px;
+	margin-left:10px;
+}
+/***/
+/*** login form***/
+#form_left { /*home page - not logged in*/
+        float:left;
+	margin-top:15px;
+        height: 450px;
+}
+#form_right { /*home page - not logged in*/
+        float:right;
+	margin-top:15px;
+        margin-left:1px;
+        max-width:60%;
+}
+.PersonForm {
+	margin-left:15px;
+	color: #000000;
+}
+.PersonForm .row {
+	text-align:left;
+	margin-bottom: .5em;
+}
+.PersonForm .heading {
+	font-weight:bold;
+}
+.form_block h4 {
+	margin-top:0px;
+}
+.Required, .content .Required, .content .Required * {
+	color: #ff9933;
+	font-weight: bold;
+}
+input, input:required {
+	border:solid 1px #1f3041;
+}
+.PersonForm label {
+	font-size:11px;
+	white-space:nowrap;
+}
+.label {
+	font-size: 11px;
+	display: block;
+}
+.field {
+	font-size: .9em;
+}
+.field input[type=email], .field input[type=password], .field input[type=text] {
+	width:200px;
+	max-width:200px;
+}
+#login {
+	margin-top: 5px;
+	margin-left: 6px;
+	text-align: left;
+}
+.small {
+	font-size: 9px;
+	color: #484848;
+}
+.caption {
+	font-size: .6em;
+}
+.radio {
+	font-size: .65em;
+	font-weight: bold;
+	color: #000;
+}
+.buy {
+	margin-left: 20px;
+}
+/*****/
+.content p {
+	line-height: 1.166;
+	font-size: .95em;
+	margin-right:30px;
+	padding: 3px 0px 3px 0px;
+}
+.content p + p {
+	margin-top:.9em;
+}
+.content p.product + p {
+	margin-top:0px;
+}
+/* used only to force a break between stacked content areas, eg, when they come too close to product cover */
+.content hr.columnbreaker {
+	clear:both;
+	visibility:hidden;
+	margin:0px;
+	padding:0px;
+	height:2em;
+}
+.citation {
+	font-size: .825em;
+	margin-left: 5px;
+ 	font-weight: bold;
+}
+.message { /*your email - your password*/
+	color: #ff0000 !important; /*red*/
+}
+.devNote {
+	color: #686868;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+	margin-bottom:6px; /*minimum margin*/
+	color: #192432;
+	font-weight:bold;
+}
+.content h1 {
+	margin-bottom:15px;
+	font-size: 1.40em;
+}
+.content h2 {
+	margin-bottom:12px;
+	font-size: 1.10em;
+}
+.content h3 {
+	font-size: 1.05em;
+}
+.content h4 {
+	font-size: .9em;
+}
+.content h5 {
+	font-size: .8em;
+}
+.content h6 {
+	font-size: .7em;
+	line-height:1em;
+}
+/*** jw player ***/
+#mediaplayer {
+	margin-left: 20px;
+}
+
+textarea {
+	font:inherit; /* font face was lost somehow */
+}
+
+/***table design***/
+.content table {
+	margin:1em;
+	border:solid 1px #999999; /* used as border until tbody supports it */
+	border-spacing:0px;
+	border-collapse:separate;
+}
+*:first-child+html .content table { /* IE7 does not support border-spacing */
+	border-collapse:collapse;
+}
+.content table caption {
+	text-align:center;
+	padding:0px 2em;
+	font-weight:bold;
+	font-size:85%;
+}
+.content table tbody { /* does not work */
+	border:solid 1px #dddddd;
+}
+.content table tbody + thead, .content table tbody + tbody { /* does not work */
+	margin-top:10px;
+}
+.content tr:hover {
+	background-color:#dddddd;
+}
+.content thead tr:hover, .content tfoot tr:hover {
+	background-color:transparent;
+}
+.content th {
+	border-bottom:1px solid #999999;
+	white-space:nowrap;
+}
+.content th, .content td {
+	padding:2px;
+	vertical-align:top;
+}
+.content thead, .content th, .content tr:hover th {
+	font-size:.95em;
+	font-weight:bold;
+}
+.content tr td { /* necessary for hovers to have something to replace */
+	border-top:transparent solid 1px;
+	border-bottom:transparent solid 1px;
+}
+.content tr td:first-child {
+	border-right:none;
+}
+.content tr:hover td:first-child {
+	/* put a border here if table has none but tr:hover does */
+}
+.content tr:hover td {
+	border-top:solid 1px #999999;
+	border-bottom:solid 1px #999999;
+}
+.content tr td:last-child {
+
+}
+.content tr:hover td:last-child {
+	/* put a border here if table has none but tr:hover does */
+}
+.content tfoot {
+	font-size:85%;
+}
+.content tfoot td {
+	border-top:solid 1px #999999;
+}
+.content tfoot tr:hover td {
+	/* border-color:transparent; */
+}
+
+.content table.cookies {
+	font-size:75%;
+}
+
+.content table.cookies td:first-child {
+	white-space:nowrap;
+}
+
+.content table.cookies td {
+	border-top:solid 1px #999999;
+}
+
+.content ol.reference li:target, .content *:target {
+	background-color:#ddeeff;
+}
+
+.content .revision {
+	text-align: right;
+	color:#999999;
+}
+
+.rtmp_player_425 {
+	display:block;
+	width:425px;
+	height:344px;
+	background:url("blank_1x1.png")/*tpa=http://booksite.elsevier.com/video_library/images/blank_1x1.png*/;
+}
+
+.rtmp_player_navigation .navigation {
+	width:100%;
+}
+
+.rtmp_player_navigation .navigation > li {
+	margin-left:0px;
+	margin-right:0px;
+	min-height:1.5em;
+}
+
+/** Zoomify or other zoomable image **/
+.figure_zoomable {
+	margin:auto;
+	border:solid 1px #696969;
+	width:810px;
+	height:450px;
+}
+
+/*** BEGIN styles for book.dtd content ***/
+.outline, .nomenclature {
+	margin:1em;
+	padding:0.5em 1.0em;
+	background-color:#f4f4f4;
+}
+.outline h1, .nomenclature h1 {
+	border-bottom:solid 1px #1f3041;
+}
+
+.section h1 {
+	color:#ffffff;
+	background-color:#1f3041;
+}
+.section h1, .section h2 {
+	margin-top:1em;
+	padding:0.25em;
+}
+.section h2 {
+	border-left:solid 2px #1f3041;
+	background-color:#f4f4f4;
+}
+.section h3 {
+	margin-top:0.5em;
+	padding:0.25em;
+	border-bottom:solid 1px #1f3041;
+}
+
+.FigureCaption {
+	margin:1em;
+	border:solid 1px #000000;
+	padding:0.5em 1em;
+	min-height:170px;
+	background-color:#cccccc;
+}
+.FigureCaption .figure {
+	float:right;
+	margin-left:10px;
+	/* border:solid 1px #999999; applied to img */
+	text-align:center;
+	background-color:#cccccc;
+}
+/* applied to image instead of .figure because a 4px padding appeared at bottom and wouldn't go away */
+.FigureCaption .figure img {
+	border:solid 1px #999999;
+}
+
+.FigureCaption .caption {
+	font-size: .8em;
+}
+/* prevents tables from getting too wide */
+.fullsize {
+	overflow: auto;
+	width: 99.6%;
+	height: 100%;
+}
+
+caption .label {
+	display:inline-block;
+}
+
+.textbox {
+	margin:1em;
+	border:solid 1px #000000;
+}
+
+.textbox > .label {
+	padding:0.5em;
+	color:#ffffff;
+	font-weight:bold;
+	background-color:#1f3041;
+}
+
+.textbox-body {
+	padding:0.5em 1.0em;
+	background-color:#cccccc;
+}
+
+
+.textbox-body .section h1 {
+	color:inherit;
+	background-color:inherit;
+}
+
+.exam {
+	margin:1em;
+	padding:0.5em 1em;
+}
+
+.exam-questions, .exam-answers {
+	border:solid 1px #f4f4f4;
+}
+
+.exam-questions + .exam-answers {
+	margin-top:1em;
+}
+
+.exam-questions .section > h1, .exam-answers .section > h1  {
+	margin-top:0px;
+}
+
+/*** END styles for book.dtd content ***/
+
+
+/* BEGIN related to expando JavaScript, each level using +/- needs this style; see also easyread */
+ul.expandoNav {
+  list-style-type:none;
+}
+ul.expandoNav UL {
+  list-style-type:disc;
+}
+ul.expandoNav ul li, ul.expandoNav ol li { /* overrides easyread-like style below */
+  margin-bottom:0em;
+}
+.expandoNav span.plus, .expandoNav span.minus {
+  /*width: 1em; DOESN'T WORK*/
+  padding-right: 2px;
+}
+a.expando { /* removes underline from +/- */
+  text-decoration:none;
+  color:#0000FF; /* same as A:link above */
+}
+a.expando span.item { /* adds it back for the text */
+  text-decoration:underline;
+}
+.expandoNav span.minus {
+  padding-left: 3px;
+}
+/* END expandoNav */
+
+
+/*** image collection ***/
+.main_container h1 {
+	font-size:1.1em;
+}
+.main_container h2 {
+	font-size:0.95em;
+}
+.main_container h3 {
+	font-size:0.85em;
+}
+/*** end image collection ***/
+
+/*** toolbar is shared by IC, these styles are extra specific to override imagecollection.css which is written later on page ***/
+/* .content targets IC toolbar outside IC.main_container; .main_container is location of IC content */
+.main_container .toolbar {
+    background-color: #dddddd;
+}
+
+.main_container .toolbar a, .content .toolbar a {
+    background-color: #192432;
+}
+
+.main_container .toolbar a:hover, .content .toolbar a:hover {
+    background-color:#165bb3;
+    color: #ffffff;
+}
+/*** end toolbar ***/
+
+/*****/
+/***search highlighting***/
+.content .chaff {
+
+}
+
+.content .wheat {
+	font-weight:bold;
+	color:#ff9933;
+}
+
+/*****/
+/***sitemap elements***/
+/* lh would make more sense, but IE...*/
+h3 + ol.newnum {
+	margin-top:-1em;
+}
+/* this is used on testversion page which omits root ol */
+div.sitemap {
+	margin-left:5em;
+}
+ol.sitemap, ol.newnum {
+	list-style:none outside;
+}
+ol.sitemap ol {
+	margin-left:2.5em;
+}
+.sitemap li {
+	clear:both;
+}
+/* .newnum indentation needs to be wide enough to fit .itemnum */
+.newnum li {
+	text-indent:-2.25em;
+}
+div.sitemap .newnum li {
+	text-indent:-2.5em;
+}
+/* .itemnum - .newnum = gutter between the two */
+.newnum .itemnum {
+	position:relative;
+	display:block;
+	float:left;
+	left:-2.75em;
+	margin-right:none;
+	text-align:right;
+
+}
+/* realigns with other numbers when used outside sitemap */
+.newnum {
+	margin-left:2em;
+}
+/* may not be needed to reset previous, but just in case */
+div.sitemap .newnum {
+	margin-left:inherit;
+}
+div.sitemap .newnum .itemnum {
+	left:-3.25em;
+}
+/* IE, you so crazy! */
+*:first-child+html .newnum li {
+	text-indent:-3em;
+}
+/* IE, you so crazy! */
+* html .newnum li {
+	text-indent:-3em;
+}
+/* IE won't float these out without drawing space on same line; width makes hole on page */
+*:first-child+html .newnum .itemnum {
+	position:static;
+	float:none;
+	display:inline;
+	margin-right:1em;
+	width:2em;
+}
+/* IE won't float these out without drawing space on same line; width makes hole on page */
+* html .newnum .itemnum {
+	position:static;
+	float:none;
+	display:inline;
+	margin-right:1em;
+	width:2em;
+}
+
+.sitemap img.cover {
+	float:left;
+	margin-right:2em;
+	margin-bottom:10px;
+}
+
+#searchbox:invalid {
+	color:#cccccc;
+}
+#searchbox:invalid:focus {
+	color:inherit;
+}
+
+/***** end content *****/
+
+/***** start footer styles *****/
+.footer {
+	background-color:#fafafa; /* old: bg_footer.gif */
+	padding:10px 0;
+	border-top: 1px solid #fafafa;
+	clear:both;
+}
+*+html .footer {
+	width:100%;
+}
+.footer .innercontainer {
+
+	width: 1020px;
+	margin: 0px auto 0px auto;
+
+	padding: 0 4px;
+	padding-left: 40px;
+}
+.footer .clearline {
+	clear:both;
+	height:1px;
+	line-height:1px;
+	font-size:0px;
+}
+.footer .innercontainer .onecolumn {
+	float: left;
+	overflow: visible;
+	width:240px; /*200 - 5 column within 1020 width*//*250 - for 4 column*/
+	min-height:20px;
+}
+
+
+.footer dl {
+	padding:0;
+	position:relative;
+	margin-top: 5px;
+	margin-left:10px; /*-10px*/
+}
+.footer dd {
+	position:relative;
+	z-index: 1;
+	text-align: left;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: .78em;
+	font-weight: normal;
+	text-decoration:none;
+	margin-left:-2px;
+	margin-bottom:0px; /* resets value from main page */
+}
+.footer h4 {  /*footer column heads*/
+	font-size: .75em;  /*12px*/
+	font-weight:bold;
+	text-align: left;
+	padding-top:0px;
+	margin-top: 0px;
+	margin-left:7px; /*30px*/
+	margin-bottom: 14px;
+	color:#333;
+}
+.footer a {
+	color:#333;
+	line-height: 20px;
+	font-weight: lighter;
+}
+
+.footer a.box {
+	text-decoration:none;
+}
+
+.footer .social-share .svg-icon-social {
+	display:inline-block;
+	float:left;
+	width:35px;
+	height:35px;
+}
+
+.footer .svg-icon-social {
+	fill:#007398;
+}
+
+.footer .svg-icon-social:hover {
+	color:#dcdcdc;
+	text-decoration:underline;
+	border-bottom:solid 1px #dcdcdc;
+}
+
+.subfooter_box {
+	position:absolute;
+	display:none;
+	bottom: -22px;
+	width: 245px;
+	left: 107px !important;
+	z-index:11;
+}
+.subfooter_boxNew {
+	left: 300px !important;
+	z-index:9 !important;
+}
+.subfooter_top {
+    height: 10px;
+    background:url("bg_footer_subnav_top.png")/*tpa=http://booksite.elsevier.com/global_content/store_companion/ui/images/bg_footer_subnav_top.png*/ no-repeat;
+    line-height:10px;
+}
+.subfooter_main {
+    padding:5px 3px 0px 22px;
+    background:url("bg_footer_subnav.png")/*tpa=http://booksite.elsevier.com/global_content/store_companion/ui/images/bg_footer_subnav.png*/ bottom no-repeat;
+}
+.subfooter_main dl {
+    padding-bottom: 20px;
+}
+.subfooter_main a {
+    display:block;
+    padding: 2px 5px 2px 15px;
+	text-decoration:none; /*added 06.25.12 - does not work*/
+}
+.subfooter_main a:hover {
+    background-color:#d0d7e0;
+    text-decoration:none;
+}
+.subfooter_main b {
+    padding: 0 5px 0 15px;
+}
+/* Added for font of submenu */
+.subfooter_main dl dd a {
+	font-size:12px !important;
+	color:#000 !important; line-height:20px;
+}
+.lightbox, .editboard_box, .helpbox {
+    background: url("bg_lightbox.png")/*tpa=http://booksite.elsevier.com/global_content/store_companion/ui/images/bg_lightbox.png*/ no-repeat scroll 0 0 transparent;
+    height: 468px;
+    left: 50%;
+    margin: -250px 0 0 -308px;
+    overflow: hidden;
+    padding: 48px 8px 0 9px;
+    position: fixed;
+    top: 50%;
+    width: 630px;
+    z-index: 10;
+}
+.helpbox {
+    background: transparent url("bg_lightbox_large.png")/*tpa=http://booksite.elsevier.com/global_content/store_companion/ui/images/bg_lightbox_large.png*/ no-repeat;
+	width:760px;
+    margin-left: -373px;
+}
+.editboard_box {
+	display:none;
+}
+.lightbox .btn_close,
+.editboard_box .btn_close,
+.helpbox .btn_close {
+    position: absolute;
+    z-index: 10;
+    right: 28px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: transparent;
+}
+.viewerCanvas {
+    width:  630px;
+    height: 430px;
+}
+.viewerHelpbox {
+    width:  760px;
+    height: 445px;
+}
+
+.content .btn_enable, .content .btn_disabled {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	display:inline-block;
+	text-align:center;
+	font-size:14px;
+	font-weight:normal;
+	padding:5px 20px 5px 20px;
+}
+
+a.btn_enable, .btn_enable a, a.btn_disabled, .btn_disabled a {
+	text-decoration:none;
+}
+
+.btn_enable {
+	background-color:#192432;
+	cursor:pointer;
+}
+a.btn_enable, .btn_enable a, a.btn_enable:hover, .btn_enable a:hover {
+	color:#f4f4f4;
+}
+.btn_enable:hover {
+	background-color:#165bb3;
+}
+
+.btn_disabled {
+	background-color:#dfdfdf;
+	cursor:default;
+}
+
+a.btn_disabled, .btn_disabled a, a.btn_disabled:hover, .btn_disabled a:hover {
+	color:#104284;;
+}
+
+.editboard_inner {
+	padding: 15px 20px;
+	height: 430px;
+	overflow:auto;
+}
+.editboard_inner h2 {
+	margin-bottom: 20px 0 3px 0;
+}
+.editboard_inner h4 {
+	margin: 20px 0 5px 0;
+}
+.editboard_inner h5 {
+	font-weight:bold;
+}
+.editboard_inner p {
+	margin-bottom:5px;
+}
+/***/
+.copyright { /*bottom blue bar*/
+	background-color: #192432;
+	border-bottom: 5px solid #192432;
+	text-align: left;
+	font-size: .95em;  /*.75em*/
+	color: #fff;
+	padding:8px 0 5px 0;
+	clear:both;
+}
+p.copy {
+	width: 1020px;
+	margin: 0px auto;
+	padding-left: 15px;
+	text-align: left;
+	font-size: .75em;
+	color: #fff;
+}
+.copyright a {
+	text-align: left;
+	color: #fff;
+}
+.copyright a hover{
+	text-align: left;
+	text-decoration:underline;
+}
+.my_footer {
+	margin:0px auto;
+	width: 1020px;
+	height:60px;
+	background-color: #fff;
+	text-align: left;
+}
+.footer_logo {
+	margin-top: 15px;
+	margin-left:10px;
+}
+p.cookies {
+	float:right;
+	margin-top:20px;
+	margin-right: 5px;
+	text-align: right;
+	font-size: .75em;
+	color: #192432;
+}
+/***** end footer *****/
+
+/*** BEGIN minimal display (stripped-down template for ebook and mobile use) ***/
+/* link to TOC */
+.sitemap_link {
+	display:none;
+}
+body.minimal .sitemap_link {
+	display:block;
+	position:absolute;
+	top:2px;
+	right:0px;
+	margin-right:2em;
+	font-size:70%;
+}
+body.minimal .sitemap_link a {
+	border:solid 1px #192432;
+	padding: 3px 5px;
+	color:#ffffff;
+	background-color:#192432;
+}
+body.minimal .sitemap_link a:hover {
+	color:#165bb3;
+	background-color:#ffffff;
+	text-decoration:none;
+	border-top-color:#165bb3;
+	border-left-color:#165bb3;
+}
+
+/* removes unnnecessary blocks */
+body.minimal .login_left, body.minimal #imprint_logo, body.minimal #companion_head, body.minimal .addthis_button, body.minimal .navigation, body.minimal .footer, body.minimal .my_footer .footer_logo {
+	display:none;
+}
+body.minimal #wrapper {
+	padding-bottom:0px;
+}
+body.minimal #header, body.minimal .headerWrapper, body.minimal #author_title, body.minimal #author_title h1, body.minimal #contentWrapper, body.minimal .content, body.minimal #footer {
+	width:100%;
+	height:auto;
+}
+body.minimal .headerWrapper {
+	position:absolute;
+	background:none;
+	background-color:#192432;
+}
+body.minimal .headerWrapper, body.minimal #contentWrapper {
+	clear:both;
+}
+body.minimal #loginBar {
+	float:right;
+	height:auto;
+}
+body.minimal #top_wrapper {
+	position:static;
+	float:left;
+	clear:none;
+	background-color:inherit;
+}
+body.minimal #author_title {
+	float:none;
+	background-color:inherit;
+}
+body.minimal #author_title h1 {
+	margin:0px;
+	color:inherit;
+}
+body.minimal #author_title h1 a {
+	color:#ffffff;
+}
+body.minimal span.login_right {
+	padding:0px;
+}
+body.minimal #author_title h1, body.minimal h2.pagetitle {
+	line-height:inherit;
+}
+body.minimal .content {
+	padding-top:0px;
+}
+body.minimal #contentWrapper, body.minimal p.copy, body.minimal .my_footer {
+	margin:0px;
+}
+/* this is moved downward so it does not render behind .headerWrapper */
+body.minimal #contentWrapper {
+	position:relative;
+	top:25px;
+	margin-bottom:25px;
+	background-image:none;
+}
+body.minimal h2.pagetitle {
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:0.9em;
+	font-weight:bold;
+}
+body.minimal #footer {
+	position:absolute;
+	background-color:#192432;
+}
+body.minimal #footer a {
+	color:#ffffff;
+}
+body.minimal .copyright {
+	float:left;
+	clear:none;
+}
+body.minimal p.copy, body.minimal .my_footer {
+	width:auto;
+	height:auto;
+	background-color:inherit;
+}
+body.minimal .copyright, body.minimal p.copy {
+	border-bottom:none;
+	padding:0px;
+	background-color:inherit;
+}
+body.minimal .my_footer {
+	float:right;
+	clear:none;
+}
+body.minimal p.cookies {
+	float:none;
+	margin-top:0px;
+	color:#ffffff;
+	text-align:left;
+}
+
+@media (max-width: 767px) {
+	body.minimal {
+		padding:0px;
+	}
+	body.minimal #loginBar {
+		position:absolute;
+		right:0px;
+	}
+	body.minimal #top_wrapper {
+		position:static;
+	}
+	body.minimal #author_title {
+		white-space:nowrap;
+		font-size:0.8em;
+	}
+}
+/*** END minimal display ***/

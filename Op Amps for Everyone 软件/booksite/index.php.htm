@@ -1,0 +1,578 @@
+
+﻿﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+
+<link rel="canonical" href="http://store.elsevier.com/Op-Amps-for-Everyone/Array/isbn-9780123914958/" />
+
+  <title>Elsevier &middot; Mancini, R: Op Amps for Everyone, 4th Edition &middot; Welcome </title>
+
+	
+  <link href="terms_policies_Elsevier.css" tppabs="https://booksite.elsevier.com/global_content/terms_policies_Elsevier.css" rel="stylesheet" type="text/css" />
+  <link href="main.css" tppabs="http://booksite.elsevier.com/global_content/store_companion/main.css" rel="stylesheet" type="text/css" />
+  <link href="main.css" tppabs="http://booksite.elsevier.com/global_content/store_companion/main.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+// <![CDATA[
+IE = (navigator.appName == "Microsoft Internet Explorer");
+NS = (navigator.appName == "Netscape");
+var agt=navigator.appVersion.toLowerCase();
+ver = parseInt(agt);
+// ]]>
+</script>
+
+
+	<script type="text/javascript" src="jquery-1.12.4.min.js" tppabs="http://code.jquery.com/jquery-1.12.4.min.js"> </script>
+<script type="text/javascript" src="accordion.js" tppabs="https://booksite.elsevier.com/JS_library/accordion_menu-v1.0/accordion.js"> </script>
+<script type="text/javascript" src="yoxview-init.js" tppabs="http://booksite.elsevier.com/JS_library/jquery-yoxview/yoxview-init.js"> </script>
+<script type="text/javascript" src="generalJS.js" tppabs="http://sites.elsevier.com/JS_library/misc/generalJS.js"> </script>
+<script type="text/javascript" src="store_companion.js" tppabs="https://booksite.elsevier.com/global_content/store_companion/store_companion.js"> </script>
+
+				<script type="text/javascript">
+			// <![CDATA[
+
+
+			$(document).ready(function(){
+
+				window.remotexml_count = 0; //number of remotexml that have been applied; on window object to avoid clashes and jQuery resets
+
+				//eventually http://en.wikipedia.org/wiki/Cross-Origin_Resource_Sharing (XDomainRequest in IE8/9) will allow direct XML request
+				//for now, must get JavaScript via PHP from XML
+				//fetch content for terms
+				$.ajax({
+					url: 'https://booksite.elsevier.com/global_content/?content=terms',
+					async: false,
+					dataType: 'script'
+				})
+				.done(function(data) {
+					apply_remotexml('terms_conditions', remotexml, false, 3);
+				})
+				.fail(function(data, textStatus, errorThrown) {
+					alert('Error: Terms and conditions text did not load (' + textStatus + ')');
+				});
+
+				//fetch content for privacy
+				$.ajax({
+					url: 'https://booksite.elsevier.com/global_content/?content=privacy',
+					async: false,
+					dataType: 'script'
+				})
+				.done(function(data) {
+					apply_remotexml('privacy_policy', remotexml, false, 3);
+				})
+				.fail(function(data, textStatus, errorThrown) {
+					alert('Error: Privacy policy text did not load (' + textStatus + ')');
+				});
+
+				//fetch content for cookies
+				$.ajax({
+					url: 'cookiepolicy.php-qoutput=JSvar.js'/*tpa=http://booksite.elsevier.com/9780123914958/cookiepolicy.php?qoutput=JSvar*/,
+					async: false,
+					dataType: 'script'
+				})
+				.done(function(data) {
+					apply_remotexml('cookie_policy', remotexml, false, 3);
+				})
+				.fail(function(data, textStatus, errorThrown) {
+					alert('Error: Cookie policy text did not load (' + textStatus + ')');
+				});
+
+				//writes out content and initializes yoxview when everything is completed
+				function apply_remotexml(ID, content, yoxview_init, remotexml_total) {
+					//may not be set or may be unset by other jQuery
+					if(typeof(window.remotexml_count) === 'undefined') {
+						window.remotexml_count = 0; //number of remotexml that have been applied
+					}
+					window.remotexml_count++;
+					$('#' + ID).append(content);
+					//if true or if all remotexml pieces have been applied, yoxview will be instantiated (empty yoxes will result otherwise)
+					if(yoxview_init === true || window.remotexml_count == remotexml_total) {
+						$("#footer").yoxview({
+								allowInternalLinks: true,
+								renderButtons: false,
+								renderInfo: false,
+								renderMenu: false,
+								onBeforeUnload: function() {
+									if(window.console) {
+										console.info('yoxview unloaded');
+									}
+								},
+								textLinksSelector: ".yoxview_legal"
+						});
+						//enables other links on page to open these modals by passing event to the ones in the footer because yoxview will not apply same opener to two elements
+						$(".modal_policies").click(function(event){
+							event.preventDefault();
+							var hash="#" + this.href.split('#')[1];
+							$("#footer .yoxview_legal[href='" + hash + "']").click();
+						});
+					}
+				}
+
+
+			});
+
+
+			// ]]>
+			</script>
+
+
+	
+  </head>
+
+  <body>
+  <div id="wrapper">
+
+<div class="headerWrapper">
+<div id="header">
+	<div id="loginBar">
+		<!-- TC commented out the Companion Site Search link per task12439, Jan2013 -->
+		<span class="login_left"><a href="javascript:if(confirm(%27https://www.elsevier.com/books-and-journals  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/books-and-journals%27" tppabs="https://www.elsevier.com/books-and-journals" onclick="popup(this.href,'offsite'); return false;">Shop Elsevier</a><!--&nbsp;<img src="https://booksite.elsevier.com/global_content/store_companion/graphics/topnav_separator.gif" width="1" height="7" alt="topnav_separator" />&nbsp;&nbsp;<a href="https://www.elsevier.com/books-and-journals/special-offers" onclick="popup(this.href,'offsite'); return false;">Special Offers</a>--></span><span class="login_right"><!-- <a href="https://booksite.elsevier.com/search.php">Companion Site Search</a>&nbsp;<img src="https://booksite.elsevier.com/global_content/store_companion/graphics/topnav_separator.gif" width="1" height="7" alt="topnav_separator" /> -->&nbsp;&nbsp;
+			<a href="index.php.htm" tppabs="http://booksite.elsevier.com/9780123914958/index.php" class="login">Log in</a>&nbsp;<img src="topnav_separator.gif" tppabs="https://booksite.elsevier.com/global_content/store_companion/graphics/topnav_separator.gif" width="1" height="7" alt="topnav_separator" />&nbsp;<a href="index.php.htm" tppabs="http://booksite.elsevier.com/9780123914958/index.php">Register</a>
+			
+
+        	<div class="loginForm"><form class="login" name="login" id="loginForm" method="post" action="http://booksite.elsevier.com/9780123914958/index.php"><div class="PersonForm"><div class="row"><div class="heading">Already registered?<br />
+Log in here:</div></div>
+    			<style>
+	.username .forgot, .password .forgot {
+		min-width:1em;
+		padding:0px 1px;
+		color:#ffffff;
+		background-color:#ef0000;
+		font-weight:bold;
+		cursor:pointer;
+	}
+	.username .forgot.flash, .password .forgot.flash {
+		color:#ef0000;
+		background-color:#ffffff;
+	}
+	.username .forgot_username_overlay, .password .forgot_password_overlay {
+		display:none;
+		z-index:2;
+		position:fixed;
+		top:0px;
+		left:0px;
+		width:100%;
+		height:100%;
+		background:#000000;
+		text-align:center;
+	}
+	.username .forgot_username_modal, .password .forgot_password_modal {
+		display:none;
+		z-index:3;
+		position:fixed;
+		top:45%;
+		left:40%;
+		margin:0px auto 0px auto;
+		min-width:210px;
+		width:auto;
+		height:60px;
+		padding:5px;
+		overflow:visible;
+		white-space:nowrap;
+		color:#000;
+		background:#ffffff;
+	}
+	</style>
+
+    		<div class="row username"><label for="loginForm_username" class="label">Username:</label><span class="field"><input type="text" name="username" id="loginForm_username" /><span class="forgot" title="Forgot your username?">?</span>
+    		<div class="forgot_username_overlay"> </div>
+    		<div class="forgot_username_modal"><label for="loginForm_forgot_username" class="label">Enter your E-mail address</label><span class="field"><input type="email" name="forgot_username" placeholder="E-mail" id="loginForm_forgot_username" autocomplete="off" /></span>&nbsp;<span class="field"><input type="submit" value="Submit" class="submit button" id="loginForm_forgot_username_submit" /></span></div></span></div>
+    		<div class="row password"><label for="loginForm_password" class="label">Password:</label><span class="field"><input type="password" name="password" id="loginForm_password" /><span class="forgot" title="Forgot your password?">?</span>
+    		<div class="forgot_password_overlay"> </div>
+    		<div class="forgot_password_modal"><label for="loginForm_forgot_password" class="label">Enter your E-mail address</label><span class="field"><input type="email" name="forgot_password" placeholder="E-mail" id="loginForm_forgot_password" autocomplete="off" /></span>&nbsp;<span class="field"><input type="submit" value="Submit" class="submit button" id="loginForm_forgot_password_submit" /></span></div></span></div>
+			
+	<script>
+		var IE_8 = false;
+
+		//forEach and indexOf polyfills from MDN did not work for IE8
+		if(!Array.prototype.forEach || !Array.prototype.indexOf) {
+			IE_8 = true;
+		}
+
+		//rather than display something that will not work, hide these from IE8
+		if(IE_8 === true) {
+			forgottens = document.querySelectorAll('span.forgot');
+			for(var f=0; f<forgottens.length; f++) {
+				forgottens[f].style.display = 'none';
+			}
+		}
+
+		//attaches a forgot username/password modal to the .username and .password .forgot elements
+		formparts = ['username', 'password'];
+		for(var i=0;i<formparts.length;i++) {
+			formpart = formparts[i];
+
+			//without this filter overlay will throw an error when row HTMLCollection contains the registration form first
+			rowcollection = Array.prototype.filter.call(document.getElementsByClassName(formpart), function(row) {
+				return row.getElementsByClassName('forgot_'+formpart+'_overlay').length > 0;
+			});
+
+			Array.prototype.forEach.call(rowcollection, function(row) {
+				var overlay = row.getElementsByClassName('forgot_'+formpart+'_overlay')[0];
+				var modal = row.getElementsByClassName('forgot_'+formpart+'_modal')[0];
+				overlay.style.opacity = .8;
+				overlay.addEventListener('click', function(e) {
+					overlay_toggle(overlay, modal);
+				});
+				modal.querySelectorAll('input.submit')[0].addEventListener('click', function(e) {
+					var requesttype = modal.className.split('_modal')[0];
+					requesttypes = new Array();
+					formparts.forEach(function(item) {
+						requesttypes.push('forgot_' + item);
+					});
+					//When Enter is used to submit a form the first submit is automatically selected, but not necessarily intended
+					if(requesttype != document.activeElement.name && document.activeElement.name != '') {
+						//Enter was pressed on a different modal
+						if(this.form.elements[document.activeElement.name].value.length != 0 && requesttypes.indexOf(document.activeElement.name) !== -1) {
+							requesttype = document.activeElement.name;
+							e.preventDefault();
+
+						//Enter was pressed on main form, so click its submit button
+						} else {
+							main = true;
+							for(var i=0; i<this.form.length; i++) {
+								if(this.form[i].id == 'loginForm_submit') {
+									this.form[i].click();
+									break;
+								}
+							}
+							return true;
+						}
+
+					//Enter was pressed on this (first) modal
+					} else {
+						e.preventDefault();
+					}
+
+					var resetRequest = new XMLHttpRequest();
+					var urlEncodedData = "";
+					var urlEncodedDataPairs = [];
+					var name;
+					for(var i=0; i<this.form.length; i++) {
+						//exclude the email address from other forgot_* modals
+						if(requesttypes.indexOf(this.form[i].name) !== -1 && requesttype == this.form[i].name) {
+							urlEncodedDataPairs.push(encodeURIComponent(this.form[i].name) + "=" + encodeURIComponent(this.form[i].value));
+						}
+					}
+					urlEncodedData = urlEncodedDataPairs.join("&").replace(/%20/g, "+");
+
+					//these values are injected by PHP
+					resetRequest.addEventListener("load", function() {
+						if(this.responseText == "241" && requesttype == 'forgot_username') {
+							alert('Your E-mail address is not properly formed');
+						} else if(this.responseText == "241" && requesttype == 'forgot_password') {
+							alert('Your E-mail address is not properly formed');
+						} else if(this.responseText == "205" && requesttype == 'forgot_username') {
+							alert('Sorry, your E-mail address was not found in our database.');
+						} else if(this.responseText == "205" && requesttype == 'forgot_password') {
+							alert('Sorry, your E-mail address was not found in our database.');
+						} else if(this.responseText == "211" && requesttype == 'forgot_username') {
+							alert('Sorry, more than one account with that E-mail address was found.  Please contact Customer Service (%1$s) for assistance.');
+						} else if(this.responseText == "211" && requesttype == 'forgot_password') {
+							alert('Sorry, more than one account with that E-mail address was found.  Please contact Customer Service (%1$s) for assistance.');
+						} else if(this.responseText == "1" && requesttype == 'forgot_username') {
+							alert('Your username has been sent. Please check your E-mail.');
+							overlay_toggle(overlay, modal);
+						} else if(this.responseText == "1" && requesttype == 'forgot_password') {
+							alert('Your password has been sent. Please check your E-mail.');
+							overlay_toggle(overlay, modal);
+						} else {
+							alert('ERROR: ' + this.responseText);
+						}
+					}, false);
+					resetRequest.addEventListener("error", function() {
+						alert('ERROR: Communication with server failed');
+					}, false);
+					resetRequest.open("POST", "index.php-reset=email.htm"/*tpa=http://booksite.elsevier.com/9780123914958/index.php?reset=email*/, true);
+					resetRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					resetRequest.setRequestHeader("Content-Length", urlEncodedData.length);
+					resetRequest.send(urlEncodedData);
+				});
+				Array.prototype.forEach.call(row.getElementsByClassName('field')[0].getElementsByTagName('input'), function(field) {
+					if(formparts.indexOf(field.name) !== -1) {
+						field.addEventListener('focus', function(e) {
+							var forgot = field.parentNode.getElementsByClassName('forgot')[0];
+							//only flash for two focuses
+							if(typeof forgot.dataset.alreadyFlashed == 'undefined') {
+								forgot.dataset.alreadyFlashed = 0;
+							}
+							if(forgot.dataset.alreadyFlashed < 2) {
+								var flashid = window.setInterval(forgotflash, 300, forgot);
+								forgot.dataset.alreadyFlashed++;
+								window.setTimeout(function(flashid) {
+									window.clearInterval(flashid);
+									forgot.classList.remove('flash');
+								}, 1200, flashid, forgot);
+							}
+						});
+					}
+				});
+				row.getElementsByClassName('forgot')[0].addEventListener('click', function(e) {
+					overlay_toggle(overlay, modal);
+				});
+			});
+		}
+
+		//flashes the corresponding forgot box
+		function forgotflash(forgot) {
+			forgot.classList.toggle('flash');
+		}
+
+		//toggles display of overlay and modal
+		function overlay_toggle(overlay, modal) {
+				if(overlay.style.display == "block"){
+					overlay.style.display = "none";
+					modal.style.display = "none";
+					modal_clear_forgot(modal);
+				} else {
+					overlay.style.display = "block";
+					modal.style.display = "block";
+					//onkeypress=Esc: overlay_toggle
+				}
+		}
+
+		//clears out modal email boxes which, if populated with malformed addresses, can prevent browser from submitting form
+		function modal_clear_forgot(modal,forgot) {
+				if(typeof forgot == 'undefined' || forgot == '') {
+					forgot = modal.className.split('_modal')[0];
+				}
+				for(var i=0; i<modal.children.length; i++) {
+					//clear it and bubble up true to end loop
+					if(modal.children[i].name == forgot) {
+						modal.children[i].value = '';
+						return true;
+					} else if(modal.children[i].children.length > 0) {
+						//bubble up true to end loop
+						if(modal_clear_forgot(modal.children[i], forgot) === true) {
+							return true;
+						}
+					}
+				}
+
+		}
+
+
+	</script>
+
+    		<div class="row rememberme"><span class="caption"><input type="checkbox" name="rememberme" value="Y" id="loginForm_rememberme" /><label for="loginForm_rememberme">Stay signed in</label></span></div>
+    		<div class="row submit"><span class="label"></span><span class="field"><input type="submit" value="Log in" class="submit" id="loginForm_submit" /></span></div>
+    		<div class="row registerpage"><strong><a href="index.php.htm" tppabs="http://booksite.elsevier.com/9780123914958/index.php">Register</a></strong></div>
+    		</div></form></div>
+
+        	
+		</span>
+	</div>
+	<!-- end loginBar -->
+	<div id="top_wrapper">
+		<div id="imprint_logo"><a href="javascript:if(confirm(%27https://www.elsevier.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/%27" tppabs="https://www.elsevier.com/" onclick="popup(this.href,'offsite'); return false;"><img src="nonsolus110x97.png" tppabs="https://booksite.elsevier.com/global_content/store_companion/graphics/nonsolus110x97.png" class="elsevier" width="97" height="110" alt="imprint logo" /></a></div>
+		<!--end imprint logo-->
+		<div id="companion_head">
+			<h2 class="companion_materials">Companion Materials</h2>
+		</div>
+		<!--end banner-->
+		<div id="author_title">
+			<h1><a href="index.htm" tppabs="http://booksite.elsevier.com/9780123914958/">Mancini, R: Op Amps for Everyone, 4th Edition</a></h1>
+			<!-- AddThis Button BEGIN -->
+			
+			<div class="addthis_button"><a href="javascript:if(confirm(%27http://www.addthis.com/bookmark.php?v=250&username=xa-4b86c3090c5f65ae  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.addthis.com/bookmark.php?v=250&username=xa-4b86c3090c5f65ae%27" tppabs="http://www.addthis.com/bookmark.php?v=250&username=xa-4b86c3090c5f65ae"><img width="125" height="16" alt="Bookmark and Share" src="lg-share-en.gif" tppabs="https://s7.addthis.com/static/btn/v2/lg-share-en.gif" /></a></div>
+			<script type="text/javascript" src="addthis_widget.js#username=xa-4b86c3090c5f65ae" tppabs="https://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b86c3090c5f65ae"> </script>
+		
+			<!-- AddThis Button END -->
+		</div>
+		<!--end author_title-->
+	</div>
+	<!--end top_wrapper-->
+</div>
+<!-- end header -->
+</div>
+<!-- end headerWrapper -->
+
+<hr style="display:none" />
+		
+
+<div class="contentWrapper" id="contentWrapper">
+	<div id="navigation" class="navigation">
+	<div id="firstpane" class="menu_list"><p class="menu_item"><a href="index.php.htm" tppabs="http://booksite.elsevier.com/9780123914958/index.php" title="Home" target="_top" class="">Home</a></p><p class="menu_item"><a href="gain_offset_2.htm" tppabs="http://booksite.elsevier.com/9780123914958/content/gain_offset/gain_offset_2.htm" title="Op Amp Expert" target="_blank" class="">Op Amp Expert</a></p><p class="menu_item"><a href="universal_1.htm" tppabs="http://booksite.elsevier.com/9780123914958/content/universal_filter/universal_1.htm" title="Universal Filter Board Calculator" target="_blank" class="">Universal Filter Board Calculator</a></p><p class="menu_item"><a href="bpf_adj.htm" tppabs="http://booksite.elsevier.com/9780123914958/content/Band_Pass_Filter_Calculator/bpf_adj.htm" title="Band Pass Filter Calculator" target="_blank" class="">Band Pass Filter Calculator</a></p><p class="menu_item"><a href="notch_2.htm" tppabs="http://booksite.elsevier.com/9780123914958/content/Notch_Filter_Calculator/notch_2.htm" title="Notch Filter Calculator" target="_blank" class="">Notch Filter Calculator</a></p><p class="menu_item"><a href="twint_bpf.htm" tppabs="http://booksite.elsevier.com/9780123914958/content/Twin_T_Band_Pass_Filter_Calculator/twint_bpf.htm" title="Twin T Band Pass Filter Calculator" target="_blank" class="">Twin T Band Pass Filter Calculator</a></p><p class="menu_item"><a href="twint_notch.htm" tppabs="http://booksite.elsevier.com/9780123914958/content/Twin_T_Notch_Filter_Calculator/twint_notch.htm" title="Twin T Notch Filter Calculator" target="_blank" class="">Twin T Notch Filter Calculator</a></p><p class="menu_item"><a href="high_side_sense.htm" tppabs="http://booksite.elsevier.com/9780123914958/content/Difference_Amplifier_Calculator/high_side_sense.htm" title="Difference Amplifier Calculator" target="_blank" class="">Difference Amplifier Calculator</a></p><p class="menu_item"><a href="voltage_reg.htm" tppabs="http://booksite.elsevier.com/9780123914958/content/voltage_reg/voltage_reg.htm" title="Voltage Regulator Calculator" target="_blank" class="">Voltage Regulator Calculator</a></p><p class="menu_item"><a href="Ddifferential_stuff.zip" tppabs="http://booksite.elsevier.com/9780123914958/content/Ddifferential_stuff.zip" title="Ddifferential Stuff" target="_blank" class="">Ddifferential Stuff</a></p><p class="menu_item"><a href="filter.zip" tppabs="http://booksite.elsevier.com/9780123914958/content/filter.zip" title="Filter" target="_blank" class="">Filter</a></p><p class="menu_item"><a href="filter_2.zip" tppabs="http://booksite.elsevier.com/9780123914958/content/filter_2.zip" title="Filter 2" target="_blank" class="">Filter 2</a></p><p class="menu_item"><a href="gain_offset.zip" tppabs="http://booksite.elsevier.com/9780123914958/content/gain_offset.zip" title="Gain Offset" target="_blank" class="">Gain Offset</a></p><p class="menu_item"><a href="notch.zip" tppabs="http://booksite.elsevier.com/9780123914958/content/notch.zip" title="Notch" target="_blank" class="">Notch</a></p><p class="menu_item"><a href="tt.zip" tppabs="http://booksite.elsevier.com/9780123914958/content/tt.zip" title="Twin T" target="_blank" class="">Twin T</a></p></div>
+
+	</div>
+	<!-- end navigation -->
+
+	<div id="content" class="content">
+		<h2 class="pagetitle">Welcome </h2>
+		
+		
+
+
+	<div class="home_left">
+
+	<!--<p class="product"><a href="http://store.elsevier.com/product.jsp?isbn=9780123914958" onclick="popup(this.href,'offsite'); return false;"><img src="http://covers.elsevier.com/200/9780123914958.jpg" width="150" height="200" alt="" class="cover" /></a><br />
+
+<a href="http://store.elsevier.com/product.jsp?isbn=9780123914958" onclick="popup(this.href,'offsite'); return false;">Buy this book</a></p>-->
+
+<p class="product"><a href="javascript:if(confirm(%27http://store.elsevier.com/product.jsp?isbn=9780123914958  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://store.elsevier.com/product.jsp?isbn=9780123914958%27" tppabs="http://store.elsevier.com/product.jsp?isbn=9780123914958" onclick="popup(this.href,'offsite'); return false;" class="buycover"><img src="9780123914958.jpg" tppabs="http://covers.elsevier.com/200/9780123914958.jpg" width="150" height="200" alt="" class="cover" /></a><br/>
+
+<a href="javascript:if(confirm(%27http://store.elsevier.com/product.jsp?isbn=9780123914958  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://store.elsevier.com/product.jsp?isbn=9780123914958%27" tppabs="http://store.elsevier.com/product.jsp?isbn=9780123914958" onclick="popup(this.href,'offsite'); return false;" class="buybutton">Buy this book</a></p>
+
+	<p>Welcome to the website for <em>Mancini, R: Op Amps for Everyone, 4th Edition</em>.</p>
+
+	<!--<p>Online content is coming soon.</p>-->
+
+	</div>
+
+	<!--end home left-->
+
+	<div class="home_right">
+
+		
+<div class="upsell"></div>
+
+
+	</div>
+
+	<!--end home right-->
+
+
+
+	</div>
+	<!-- end content -->
+</div>
+<!-- end id=contentWrapper -->
+
+
+
+<hr style="display:none" />
+<div class="footer">
+    <div class="innercontainer">
+        <!--<div class="smallcolumn">&nbsp;</div>-->
+        <div class="onecolumn">
+           <h4>About Elsevier</h4>
+               <dl>
+                    <dd><a href="javascript:if(confirm(%27https://www.elsevier.com/about  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/about%27" tppabs="https://www.elsevier.com/about" onclick="popup(this.href,'offsite'); return false;">About</a></dd>
+                    <dd><a href="javascript:if(confirm(%27https://www.elsevier.com/about/newsroom  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/about/newsroom%27" tppabs="https://www.elsevier.com/about/newsroom" onclick="popup(this.href,'offsite'); return false;">Newsroom</a></dd>
+                    <dd><a href="javascript:if(confirm(%27https://www.elsevier.com/authors/journal-authors/submit-your-paper  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/authors/journal-authors/submit-your-paper%27" tppabs="https://www.elsevier.com/authors/journal-authors/submit-your-paper" onclick="popup(this.href,'offsite'); return false;">Submit your paper</a></dd>
+                    <dd><a href="javascript:if(confirm(%27https://www.elsevier.com/legal/privacy-policy  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/legal/privacy-policy%27" tppabs="https://www.elsevier.com/legal/privacy-policy" onclick="popup(this.href,'offsite'); return false;">Privacy Policy</a></dd>
+             </dl>
+        </div>
+    <div class="onecolumn">
+          <h4>Support</h4>
+           <dl>
+				<!--<dd><a href="mailto:Technical Support <Technical.Support@elsevier.com>">Help With This Site</a></dd> changed email address to form 03-24-2014 TC-->
+				<dd><a href="javascript:if(confirm(%27https://booksite.elsevier.com/techsupport/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://booksite.elsevier.com/techsupport/%27" tppabs="https://booksite.elsevier.com/techsupport/">Help With This Site</a></dd>
+				<!--<dd><a href="https://service.elsevier.com/app/overview/elsevier/">Support Center</a></dd>-->
+				<dd><a rel="nofollow" href="javascript:if(confirm(%27https://www.elsevier.com/books-and-journals  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/books-and-journals%27" tppabs="https://www.elsevier.com/books-and-journals" onclick="popup(this.href,'offsite'); return false;">Shop Elsevier</a></dd>
+
+				<dd><a rel="nofollow" href="#" class="box">Your Purchases &raquo;</a>
+					<div class="subfooter_box">
+						<div class="subfooter_top"><!-- --></div>
+						<!-- START footer subnavigation 1-->
+						<div class="subfooter_main">
+							<dl>
+									<dd><a href="javascript:if(confirm(%27https://help.elsevier.com/app/answers/list/p/7617/c/7566  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://help.elsevier.com/app/answers/list/p/7617/c/7566%27" tppabs="https://help.elsevier.com/app/answers/list/p/7617/c/7566" onclick="faqBox(this.href); return false;">Order Status</a></dd>
+									<dd><a href="javascript:if(confirm(%27https://help.elsevier.com/app/answers/list/p/7617/c/7581  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://help.elsevier.com/app/answers/list/p/7617/c/7581%27" tppabs="https://help.elsevier.com/app/answers/list/p/7617/c/7581" onclick="faqBox(this.href); return false;">Payment Queries</a></dd>
+									<dd><a href="javascript:if(confirm(%27https://help.elsevier.com/app/answers/list/p/7617/c/7567  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://help.elsevier.com/app/answers/list/p/7617/c/7567%27" tppabs="https://help.elsevier.com/app/answers/list/p/7617/c/7567" onclick="faqBox(this.href); return false;">Help with Online Access</a></dd>
+									<dd><a href="javascript:if(confirm(%27https://help.elsevier.com/app/answers/list/p/7617/c/7585  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://help.elsevier.com/app/answers/list/p/7617/c/7585%27" tppabs="https://help.elsevier.com/app/answers/list/p/7617/c/7585" onclick="faqBox(this.href); return false;">Returns and Refunds</a></dd>
+									<dd><a href="javascript:if(confirm(%27https://help.elsevier.com/app/answers/detail/a_id/1556/p/7617/kw/VAT/search/1  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://help.elsevier.com/app/answers/detail/a_id/1556/p/7617/kw/VAT/search/1%27" tppabs="https://help.elsevier.com/app/answers/detail/a_id/1556/p/7617/kw/VAT/search/1" onclick="faqBox(this.href); return false;">Vat and Sales Tax Exemptions</a></dd>
+							</dl>
+						</div>
+						<!-- END footer subnavigation 1-->
+					</div>
+				</dd>
+
+
+
+                <dd><a href="javascript:if(confirm(%27https://www.elsevier.com/sitemap  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/sitemap%27" tppabs="https://www.elsevier.com/sitemap" onclick="popup(this.href,'offsite'); return false;">Sitemap</a></dd>
+            </dl>
+    </div>
+    <div class="onecolumn">
+           <h4>Related Sites</h4>
+            <dl>
+            <dd class="list1"><a href="#" class="box">Resources for &raquo;</a>
+			<div class="subfooter_box">
+			<div class="subfooter_top"><!-- --></div>
+             <!-- START footer subnavigation 1-->
+                <div class="subfooter_main">
+                    <dl>
+                        <dd><a href="javascript:if(confirm(%27https://www.elsevier.com/authors  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/authors%27" tppabs="https://www.elsevier.com/authors" onclick="popup(this.href,'offsite'); return false;">Authors</a></dd>
+                        <dd><a href="javascript:if(confirm(%27https://www.elsevier.com/librarians  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/librarians%27" tppabs="https://www.elsevier.com/librarians" onclick="popup(this.href,'offsite'); return false;">Librarians</a></dd>
+                        <dd><a href="javascript:if(confirm(%27http://store.elsevier.com/coArticle.jsp?pageid=4200022  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://store.elsevier.com/coArticle.jsp?pageid=4200022%27" tppabs="http://store.elsevier.com/coArticle.jsp?pageid=4200022" onclick="popup(this.href,'offsite'); return false;">Resellers</a></dd>
+                        <dd><a href="javascript:if(confirm(%27http://store.elsevier.com/coArticle.jsp?pageid=4200024  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://store.elsevier.com/coArticle.jsp?pageid=4200024%27" tppabs="http://store.elsevier.com/coArticle.jsp?pageid=4200024" onclick="popup(this.href,'offsite'); return false;">Students</a></dd>
+                        <dd><a href="javascript:if(confirm(%27https://www.elsevier.com/research-platforms  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/research-platforms%27" tppabs="https://www.elsevier.com/research-platforms" onclick="popup(this.href,'offsite'); return false;">Researchers</a></dd>
+                        <dd><a href="javascript:if(confirm(%27https://www.elsevier.com/reviewers  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/reviewers%27" tppabs="https://www.elsevier.com/reviewers" onclick="popup(this.href,'offsite'); return false;">Reviewers</a></dd>
+                    </dl>
+                </div>
+	<!-- END footer subnavigation 1-->
+          </div>
+          </dd>
+		<dd class="list2"><a href="javascript:if(confirm(%27https://www.elsevier.com/solutions  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/solutions%27" tppabs="https://www.elsevier.com/solutions" onclick="popup(this.href,'offsite'); return false;">Elsevier Website List</a></dd>
+		<dd><a href="javascript:if(confirm(%27https://www.elsevier.com/events/conferences  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/events/conferences%27" tppabs="https://www.elsevier.com/events/conferences" onclick="popup(this.href,'offsite'); return false;">Conferences</a> and <a
+href="javascript:if(confirm(%27https://www.elsevier.com/exhibitions  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.elsevier.com/exhibitions%27" tppabs="https://www.elsevier.com/exhibitions" onclick="popup(this.href,'offsite'); return false;">Exhibitions</a></dd>
+		<dd>&nbsp;</dd>
+		</dl>
+    </div>
+    <div class="onecolumn">
+             <h4>Stay Connected</h4>
+                 <dl>
+                    <dd><a href="javascript:if(confirm(%27https://communications.elsevier.com/webApp/els_signUpPreferenceCenter  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://communications.elsevier.com/webApp/els_signUpPreferenceCenter%27" tppabs="https://communications.elsevier.com/webApp/els_signUpPreferenceCenter" onclick="popup(this.href,'offsite'); return false;">Email Newsletters</a></dd>
+					<dd>Follow Elsevier
+						<div class="social-share">
+							<a href="javascript:if(confirm(%27https://www.facebook.com/ElsevierConnect  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.facebook.com/ElsevierConnect%27" tppabs="https://www.facebook.com/ElsevierConnect" class="svg-icon-social" target="_blank" title="Icon social media facebook"><img alt="Icon social media facebook" src="icon-social-facebook.svg" tppabs="https://cdn.elsevier.io/verona/includes/svg/icon-social-facebook.svg" /></a>
+							<a href="javascript:if(confirm(%27https://www.linkedin.com/company/elsevier  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.linkedin.com/company/elsevier%27" tppabs="https://www.linkedin.com/company/elsevier" class="svg-icon-social" target="_blank" title="Icon social media linkedin"><img alt="Icon social media linkedin" src="icon-social-linkedin.svg" tppabs="https://cdn.elsevier.io/verona/includes/svg/icon-social-linkedin.svg" /></a>
+							<a href="javascript:if(confirm(%27https://twitter.com/ElsevierConnect  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://twitter.com/ElsevierConnect%27" tppabs="https://twitter.com/ElsevierConnect" class="svg-icon-social" target="_blank" title="Icon social media twitter"><img alt="Icon social media twitter" src="icon-social-twitter.svg" tppabs="https://cdn.elsevier.io/verona/includes/svg/icon-social-twitter.svg" /></a>
+							<a href="javascript:if(confirm(%27https://www.youtube.com/c/elsevier/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.youtube.com/c/elsevier/%27" tppabs="https://www.youtube.com/c/elsevier/" class="svg-icon-social" target="_blank"><img alt="Icon social media youtube" src="icon-social-youtube.svg" tppabs="https://cdn.elsevier.io/verona/includes/svg/icon-social-youtube.svg" /></a>
+						</div>
+					</dd>
+                </dl>
+    </div>
+	 <div class="clearline"><!-- --></div>
+    </div>
+    <!--end innercontainer-->
+</div>
+<div id="footer">
+<div class="copyright"><p class="copy">Copyright &copy; 2012 by Elsevier&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#privacy_policy" title="http://www.elsevier.com/wps/find/privacypolicy.cws_home/privacypolicy" class="yoxview_legal">Privacy Policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#terms_conditions" title="http://www.elsevier.com/wps/find/termsconditions.cws_home/termsconditions" class="yoxview_legal">Terms and Conditions of Use</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a rel="nofollow" href="javascript:if(confirm(%27http://www.reedelsevier.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.reedelsevier.com/%27" tppabs="http://www.reedelsevier.com/">RELX</a></p>
+</div><!-- end footer -->
+<div class="my_footer">
+<p class="cookies">Cookies are set by this site. To decline them or learn more, visit our <a href="#cookie_policy" title="//booksite.elsevier.com/9780123914958/cookiepolicy.php" class="yoxview_legal">Cookie</a> page.</p>
+<a class="elsevier-wordmark els_link-image" href="javascript:if(confirm(%27http://www.elsevier.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.elsevier.com/%27" tppabs="http://www.elsevier.com/" onclick="popup(this.href,'offsite'); return false;" title="Homepage">
+    <img src="wordmark-elsevier.svg" tppabs="https://cdn.elsevier.io/verona/includes/svg/wordmark-elsevier.svg" class="footer_logo" alt="Elsevier Wordmark" width="140" height="27">
+  </a>
+</div>
+<!-- end my_footer -->
+</div>
+		<div id="terms_conditions" style="display:none;"></div>
+		<div id="privacy_policy" style="display:none;"></div>
+		<div id="cookie_policy" style="display:none;"></div>
+
+
+<script>
+//<![CDATA[
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17075028-5']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+//]]>
+</script>
+
+  </div>
+  <!-- end wrapper -->
+  <!-- created 02.01.12 -->
+  <!-- revised 02.22.12 beta 2 -->
+  <!-- revised 04.12.12 beta 2 -->
+  <!-- revised 06.14.12 after final, approved, etc. -->
+  <!-- final 07.02.12 -->
+
+  </body>
+<!-- created 2012-04-11 -->
+</html>

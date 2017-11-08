@@ -1,0 +1,633 @@
+<HTML>
+<HEAD>
+<TITLE>Universal Filter Board Calculator</TITLE>
+<SCRIPT language="JavaScript">
+function calculate1()
+{
+   clear();
+   type = parseFloat(document.theForm.type.value);
+   if (type == 1) calculate_lpf();
+   if (type == 2) calculate_hpf();
+   if (type == 3) calculate_bpf();
+}
+function calculate_lpf()
+{
+   capseq = parseFloat(document.theForm.capseq.value);
+   if (capseq == 24)
+   {
+      cap = new Array (1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 1.8, 2.0, 2.2, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8, 7.5, 8.2, 9.1, 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91, 100, 110, 120, 130, 150, 160, 180, 200, 220, 240, 270, 300, 330, 360, 390, 430, 470, 510, 560, 620, 680, 750, 820, 910, 1000)
+   }
+   if (capseq == 12)
+   {
+      cap = new Array (1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2, 10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82, 100, 120, 150, 180, 220, 270, 330, 390, 470, 560, 680, 820, 1000)
+   }
+   if (capseq == 6)
+   {
+      cap = new Array (1.0, 1.5, 2.2, 3.3, 4.7, 6.8, 10, 15, 22, 33, 47, 68, 100, 150, 220, 330, 470, 680, 1000)
+   }
+   resistor = parseFloat(document.theForm.R.value);
+   freq = parseFloat(document.theForm.freq.value);
+   fsf = 2 * Math.PI * freq * resistor;
+   C1 = 3.546 / fsf;
+   if (C1 < 1e-11)
+   {
+      alert ('Z4 too small');
+   }
+   if (C1 > 1e-8)
+   {
+      alert ('Z4 too large');
+   }
+   if (C1 < 1e-9  && C1 >= 1e-12)
+   {
+      unit4 = ('pF') ;
+      C1 = C1 / 1e-12;
+   }
+   else if (C1 < 1e-6  && C1 >= 1e-9)
+   {
+      unit4 = ('nF');
+      C1 = C1 / 1e-9;
+   }
+   else if (C1 < 1e-3  && C1 >= 1e-6)
+   {
+      unit4 = ('uF');
+      C1 = C1 / 1e-6;
+   }
+   else if (C1 >= 1e-3)
+   {
+      unit4 = ('F');
+   }
+   C2 = 1.392 / fsf;
+   if (C2 < 1e-11)
+   {
+      alert ('Z5 too small');
+   }
+   if (C2 > 1e-8)
+   {
+      alert ('Z5 too large');
+   }
+   if (C2 < 1e-9  && C2 >= 1e-12)
+   {
+      unit5 = ('pF') ;
+      C2 = C2 / 1e-12;
+   }
+   else if (C2 < 1e-6  && C2 >= 1e-9)
+   {
+      unit5 = ('nF');
+      C2 = C2 / 1e-9;
+   }
+   else if (C2 < 1e-3  && C2 >= 1e-6)
+   {
+      unit5 = ('uF');
+      C2 = C2 / 1e-6;
+   }
+   else if (C2 >= 1e-3)
+   {
+      unit5 = ('F');
+   }
+   C3 = 0.2024 / fsf;
+   if (C3 < 1e-11)
+   {
+      alert ('Z6 too small');
+   }
+   if (C3 > 1e-8)
+   {
+      alert ('Z6 too large');
+   }
+    if (C3 < 1e-9  && C3 >= 1e-12)
+   {
+      unit6 = ('pF') ;
+      C3 = C3 / 1e-12;
+   }
+   else if (C3 < 1e-6  && C3 >= 1e-9)
+   {
+      unit6 = ('nF');
+      C3 = C3 / 1e-9;
+   }
+   else if (C3 < 1e-3  && C3 >= 1e-6)
+   {
+      unit6 = ('uF');
+      C3 = C3 / 1e-6;
+   }
+   else if (C3 >= 1e-3)
+   {
+      unit6 = ('F');
+   }
+   for (i = 0 ; i < cap.length ; i ++ )
+   {
+      if (C1 >= cap[i] && C1 <= cap[i + 1])
+      {
+         c1_low = cap[i]
+         c1_high = cap[i + 1]
+      }
+      if (C2 >= cap[i] && C2 <= cap[i + 1])
+      {
+         c2_low = cap[i]
+         c2_high = cap[i + 1]
+      }
+      if (C3 >= cap[i] && C3 <= cap[i + 1])
+      {
+         c3_low = cap[i]
+         c3_high = cap[i + 1]
+      }
+   }
+   c1_high_diff = c1_high - C1
+   c1_low_diff = C1 - c1_low
+   if (c1_low_diff < c1_high_diff)
+   {
+      Z4 = c1_low
+   }
+   else
+   {
+      Z4 = c1_high
+   }
+   c2_high_diff = c2_high - C2
+   c2_low_diff = C2 - c2_low
+   if (c2_low_diff < c2_high_diff)
+   {
+      Z5 = c2_low
+   }
+   else
+   {
+      Z5 = c2_high
+   }
+   c3_high_diff = c3_high - C3
+   c3_low_diff = C3 - c3_low
+   if (c3_low_diff < c3_high_diff)
+   {
+      Z6 = c3_low
+   }
+   else
+   {
+      Z6 = c3_high
+   }
+   Z1 = resistor
+   Z2 = resistor
+   Z3 = resistor
+   unit1 = "Ohms"
+   unit2 = "Ohms"
+   unit3 = "Ohms"
+   document.theForm.filter.value = "DESIGN NOTES\n1. Unity gain Butterworth response only.\n2. Equal resistors strategy.\n3. Pick a seed resistor value that allows you to use NPO/COG capacitors.\n4. Select capacitors that are larger than 10pF.\n5. Use 1% capacitors, or 2% at worst."
+   lphp()
+   output()
+}
+function calculate_hpf()
+{
+   res = new Array (1, 1.02, 1.05, 1.07, 1.1, 1.13, 1.15, 1.18, 1.21, 1.24, 1.27, 1.3, 1.33, 1.37, 1.4, 1.43, 1.47, 1.5, 1.54, 1.58, 1.62, 1.65, 1.69, 1.74, 1.78, 1.82, 1.87, 1.91, 1.96, 2, 2.05, 2.1, 2.15, 2.21, 2.26, 2.32, 2.37, 2.43, 2.49, 2.55, 2.61, 2.67, 2.74, 2.8, 2.87, 2.94, 3.01, 3.09, 3.16, 3.24, 3.32, 3.4, 3.48, 3.57, 3.65, 3.74, 3.83, 3.92, 4.02, 4.12, 4.22, 4.32, 4.42, 4.53, 4.64, 4.75, 4.87, 4.99, 5.11, 5.23, 5.36, 5.49, 5.62, 5.76, 5.9, 6.04, 6.19, 6.34, 6.49, 6.65, 6.81, 6.98, 7.15, 7.32, 7.5, 7.68, 7.87, 8.06, 8.25, 8.45, 8.66, 8.87, 9.09, 9.31, 9.53, 9.76, 10, 10.2, 10.5, 10.7, 11, 11.3, 11.5, 11.8, 12.1, 12.4, 12.7, 13, 13.3, 13.7, 14, 14.3, 14.7, 15, 15.4, 15.8, 16.2, 16.5, 16.9, 17.4, 17.8, 18.2, 18.7, 19.1, 19.6, 20, 20.5, 21, 21.5, 22.1, 22.6, 23.2, 23.7, 24.3, 24.9, 25.5, 26.1, 26.7, 27.4, 28, 28.7, 29.4, 30.1, 30.9, 31.6, 32.4, 33.2, 34, 34.8, 35.7, 36.5, 37.4, 38.3, 39.2, 40.2, 41.2, 42.2, 43.2, 44.2, 45.3, 46.4, 47.5, 48.7, 49.9, 51.1, 52.3, 53.6, 54.9, 56.2, 57.6, 59, 60.4, 61.9, 63.4, 64.9, 66.5, 68.1, 69.8, 71.5, 73.2, 75, 76.8, 78.7, 80.6, 82.5, 84.5, 86.6, 88.7, 90.9, 93.1, 95.3, 97.6, 100, 102, 105, 107, 110, 113, 115, 118, 121, 124, 127, 130, 133, 137, 140, 143, 147, 150, 154, 158, 162, 165, 169, 174, 178, 182, 187, 191, 196, 200, 205, 210, 215, 221, 226, 232, 237, 243, 249, 255, 261, 267, 274, 280, 287, 294, 301, 309, 316, 324, 332, 340, 348, 357, 365, 374, 383, 392, 402, 412, 422, 432, 442, 453, 464, 475, 487, 499, 511, 523, 536, 549, 562, 576, 590, 604, 619, 634, 649, 665, 681, 698, 715, 732, 750, 768, 787, 806, 825, 845, 866, 887, 909, 931, 953, 976, 1000, 1020, 1050, 1070, 1100, 1130, 1150, 1180, 1210, 1240, 1270, 1300, 1330, 1370, 1400, 1430, 1470, 1500, 1540, 1580, 1620, 1650, 1690, 1740, 1780, 1820, 1870, 1910, 1960, 2000, 2050, 2100, 2150, 2210, 2260, 2320, 2370, 2430, 2490, 2550, 2610, 2670, 2740, 2800, 2870, 2940, 3010, 3090, 3160, 3240, 3320, 3400, 3480, 3570, 3650, 3740, 3830, 3920, 4020, 4120, 4220, 4320, 4420, 4530, 4640, 4750, 4870, 4990, 5110, 5230, 5360, 5490, 5620, 5760, 5900, 6040, 6190, 6340, 6490, 6650, 6810, 6980, 7150, 7320, 7500, 7680, 7870, 8060, 8250, 8450, 8660, 8870, 9090, 9310, 9530, 9760, 10000, 10200, 10500, 10700, 11000, 11300, 11500, 11800, 12100, 12400, 12700, 13000, 13300, 13700, 14000, 14300, 14700, 15000, 15400, 15800, 16200, 16500, 16900, 17400, 17800, 18200, 18700, 19100, 19600, 20000, 20500, 21000, 21500, 22100, 22600, 23200, 23700, 24300, 24900, 25500, 26100, 26700, 27400, 28000, 28700, 29400, 30100, 30900, 31600, 32400, 33200, 34000, 34800, 35700, 36500, 37400, 38300, 39200, 40200, 41200, 42200, 43200, 44200, 45300, 46400, 47500, 48700, 49900, 51100, 52300, 53600, 54900, 56200, 57600, 59000, 60400, 61900, 63400, 64900, 66500, 68100, 69800, 71500, 73200, 75000, 76800, 78700, 80600, 82500, 84500, 86600, 88700, 90900, 93100, 95300, 97600, 100000, 102000, 105000, 107000, 110000, 113000, 115000, 118000, 121000, 124000, 127000, 130000, 133000, 137000, 140000, 143000, 147000, 150000, 154000, 158000, 162000, 165000, 169000, 174000, 178000, 182000, 187000, 191000, 196000, 200000, 205000, 210000, 215000, 221000, 226000, 232000, 237000, 243000, 249000, 255000, 261000, 267000, 274000, 280000, 287000, 294000, 301000, 309000, 316000, 324000, 332000, 340000, 348000, 357000, 365000, 374000, 383000, 392000, 402000, 412000, 422000, 432000, 442000, 453000, 464000, 475000, 487000, 499000, 511000, 523000, 536000, 549000, 562000, 576000, 590000, 604000, 619000, 634000, 649000, 665000, 681000, 698000, 715000, 732000, 750000, 768000, 787000, 806000, 825000, 845000, 866000, 887000, 909000, 931000, 953000, 976000, 1000000);
+   capacitor = parseFloat(document.theForm.C.value);
+   freq = parseFloat(document.theForm.freq.value);
+   fsf = 1 / (2 * Math.PI * freq * capacitor * 1e-12);
+   R1 = fsf / 3.546;
+   R2 = fsf / 1.392;
+   R3 = fsf / 0.2024;
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      if (R1 >= res[i] && R1 <= res[i + 1])
+      {
+         r1_low = res[i]
+         r1_high = res[i + 1]
+      }
+      if (R2 >= res[i] && R2 <= res[i + 1])
+      {
+         r2_low = res[i]
+         r2_high = res[i + 1]
+      }
+      if (R3 >= res[i] && R3 <= res[i + 1])
+      {
+         r3_low = res[i]
+         r3_high = res[i + 1]
+      }
+   }
+   r1_high_diff = r1_high - R1
+   r1_low_diff = R1 - r1_low
+   if (r1_low_diff < r1_high_diff)
+   {
+      Z4 = r1_low
+   }
+   else
+   {
+      Z4 = r1_high
+   }
+   r2_high_diff = r2_high - R2
+   r2_low_diff = R2 - r2_low
+   if (r2_low_diff < r2_high_diff)
+   {
+      Z5 = r2_low
+   }
+   else
+   {
+      Z5 = r2_high
+   }
+   r3_high_diff = r3_high - R3
+   r3_low_diff = R3 - r3_low
+   if (r3_low_diff < r3_high_diff)
+   {
+      Z6 = r3_low
+   }
+   else
+   {
+      Z6 = r3_high
+   }
+   Z1 = capacitor
+   Z2 = capacitor
+   Z3 = capacitor
+   unit1 = "pF"
+   unit2 = "pF"
+   unit3 = "pF"
+   unit4 = "Ohms"
+   unit5 = "Ohms"
+   unit6 = "Ohms"
+   lphp()
+   document.theForm.filter.value = "DESIGN NOTES\n1. Unity gain Butterworth response only.\n2. Equal capacitors strategy.\n3. Pick a seed capacitor value that allows you to use NPO/COG capacitors.\n4. Select capacitors that are larger than 10pF.\n5. Use 1% capacitors, or 2% at worst."
+   output();
+}
+function calculate_bpf()
+{
+   clear();
+   capseq = parseFloat(document.theForm.capseq.value);
+   if (capseq == 24)
+   {
+      cap = new Array (1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 1.8, 2.0, 2.2, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8, 7.5, 8.2, 9.1)
+   }
+   if (capseq == 12)
+   {
+      cap = new Array (1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2)
+   }
+   if (capseq == 6)
+   {
+      cap = new Array (1.0, 1.5, 2.2, 3.3, 4.7, 6.8)
+   }
+   res = new Array (1, 1.02, 1.05, 1.07, 1.1, 1.13, 1.15, 1.18, 1.21, 1.24, 1.27, 1.3, 1.33, 1.37, 1.4, 1.43, 1.47, 1.5, 1.54, 1.58, 1.62, 1.65, 1.69, 1.74, 1.78, 1.82, 1.87, 1.91, 1.96, 2, 2.05, 2.1, 2.15, 2.21, 2.26, 2.32, 2.37, 2.43, 2.49, 2.55, 2.61, 2.67, 2.74, 2.8, 2.87, 2.94, 3.01, 3.09, 3.16, 3.24, 3.32, 3.4, 3.48, 3.57, 3.65, 3.74, 3.83, 3.92, 4.02, 4.12, 4.22, 4.32, 4.42, 4.53, 4.64, 4.75, 4.87, 4.99, 5.11, 5.23, 5.36, 5.49, 5.62, 5.76, 5.9, 6.04, 6.19, 6.34, 6.49, 6.65, 6.81, 6.98, 7.15, 7.32, 7.5, 7.68, 7.87, 8.06, 8.25, 8.45, 8.66, 8.87, 9.09, 9.31, 9.53, 9.76);
+   rq = new Array (1, 1.02, 1.05, 1.07, 1.1, 1.13, 1.15, 1.18, 1.21, 1.24, 1.27, 1.3, 1.33, 1.37, 1.4, 1.43, 1.47, 1.5, 1.54, 1.58, 1.62, 1.65, 1.69, 1.74, 1.78, 1.82, 1.87, 1.91, 1.96, 2, 2.05, 2.1, 2.15, 2.21, 2.26, 2.32, 2.37, 2.43, 2.49, 2.55, 2.61, 2.67, 2.74, 2.8, 2.87, 2.94, 3.01, 3.09, 3.16, 3.24, 3.32, 3.4, 3.48, 3.57, 3.65, 3.74, 3.83, 3.92, 4.02, 4.12, 4.22, 4.32, 4.42, 4.53, 4.64, 4.75, 4.87, 4.99, 5.11, 5.23, 5.36, 5.49, 5.62, 5.76, 5.9, 6.04, 6.19, 6.34, 6.49, 6.65, 6.81, 6.98, 7.15, 7.32, 7.5, 7.68, 7.87, 8.06, 8.25, 8.45, 8.66, 8.87, 9.09, 9.31, 9.53, 9.76, 10, 10.2, 10.5, 10.7, 11, 11.3, 11.5, 11.8, 12.1, 12.4, 12.7, 13, 13.3, 13.7, 14, 14.3, 14.7, 15, 15.4, 15.8, 16.2, 16.5, 16.9, 17.4, 17.8, 18.2, 18.7, 19.1, 19.6, 20, 20.5, 21, 21.5, 22.1, 22.6, 23.2, 23.7, 24.3, 24.9, 25.5, 26.1, 26.7, 27.4, 28, 28.7, 29.4, 30.1, 30.9, 31.6, 32.4, 33.2, 34, 34.8, 35.7, 36.5, 37.4, 38.3, 39.2, 40.2, 41.2, 42.2, 43.2, 44.2, 45.3, 46.4, 47.5, 48.7, 49.9, 51.1, 52.3, 53.6, 54.9, 56.2, 57.6, 59, 60.4, 61.9, 63.4, 64.9, 66.5, 68.1, 69.8, 71.5, 73.2, 75, 76.8, 78.7, 80.6, 82.5, 84.5, 86.6, 88.7, 90.9, 93.1, 95.3, 97.6, 100, 102, 105, 107, 110, 113, 115, 118, 121, 124, 127, 130, 133, 137, 140, 143, 147, 150, 154, 158, 162, 165, 169, 174, 178, 182, 187, 191, 196, 200, 205, 210, 215, 221, 226, 232, 237, 243, 249, 255, 261, 267, 274, 280, 287, 294, 301, 309, 316, 324, 332, 340, 348, 357, 365, 374, 383, 392, 402, 412, 422, 432, 442, 453, 464, 475, 487, 499, 511, 523, 536, 549, 562, 576, 590, 604, 619, 634, 649, 665, 681, 698, 715, 732, 750, 768, 787, 806, 825, 845, 866, 887, 909, 931, 953, 976, 1000, 1020, 1050, 1070, 1100, 1130, 1150, 1180, 1210, 1240, 1270, 1300, 1330, 1370, 1400, 1430, 1470, 1500, 1540, 1580, 1620, 1650, 1690, 1740, 1780, 1820, 1870, 1910, 1960, 2000, 2050, 2100, 2150, 2210, 2260, 2320, 2370, 2430, 2490, 2550, 2610, 2670, 2740, 2800, 2870, 2940, 3010, 3090, 3160, 3240, 3320, 3400, 3480, 3570, 3650, 3740, 3830, 3920, 4020, 4120, 4220, 4320, 4420, 4530, 4640, 4750, 4870, 4990, 5110, 5230, 5360, 5490, 5620, 5760, 5900, 6040, 6190, 6340, 6490, 6650, 6810, 6980, 7150, 7320, 7500, 7680, 7870, 8060, 8250, 8450, 8660, 8870, 9090, 9310, 9530, 9760, 10000, 10200, 10500, 10700, 11000, 11300, 11500, 11800, 12100, 12400, 12700, 13000, 13300, 13700, 14000, 14300, 14700, 15000, 15400, 15800, 16200, 16500, 16900, 17400, 17800, 18200, 18700, 19100, 19600, 20000, 20500, 21000, 21500, 22100, 22600, 23200, 23700, 24300, 24900, 25500, 26100, 26700, 27400, 28000, 28700, 29400, 30100, 30900, 31600, 32400, 33200, 34000, 34800, 35700, 36500, 37400, 38300, 39200, 40200, 41200, 42200, 43200, 44200, 45300, 46400, 47500, 48700, 49900, 51100, 52300, 53600, 54900, 56200, 57600, 59000, 60400, 61900, 63400, 64900, 66500, 68100, 69800, 71500, 73200, 75000, 76800, 78700, 80600, 82500, 84500, 86600, 88700, 90900, 93100, 95300, 97600, 100000, 102000, 105000, 107000, 110000, 113000, 115000, 118000, 121000, 124000, 127000, 130000, 133000, 137000, 140000, 143000, 147000, 150000, 154000, 158000, 162000, 165000, 169000, 174000, 178000, 182000, 187000, 191000, 196000, 200000, 205000, 210000, 215000, 221000, 226000, 232000, 237000, 243000, 249000, 255000, 261000, 267000, 274000, 280000, 287000, 294000, 301000, 309000, 316000, 324000, 332000, 340000, 348000, 357000, 365000, 374000, 383000, 392000, 402000, 412000, 422000, 432000, 442000, 453000, 464000, 475000, 487000, 499000, 511000, 523000, 536000, 549000, 562000, 576000, 590000, 604000, 619000, 634000, 649000, 665000, 681000, 698000, 715000, 732000, 750000, 768000, 787000, 806000, 825000, 845000, 866000, 887000, 909000, 931000, 953000, 976000, 1000000, 1020000, 1050000, 1070000, 1100000, 1130000, 1150000, 1180000, 1210000, 1240000, 1270000, 1300000, 1330000, 1370000, 1400000, 1430000, 1470000, 1500000, 1540000, 1580000, 1620000, 1650000, 1690000, 1740000, 1780000, 1820000, 1870000, 1910000, 1960000, 2000000, 2050000, 2100000, 2150000, 2210000, 2260000, 2320000, 2370000, 2430000, 2490000, 2550000, 2610000, 2670000, 2740000, 2800000, 2870000, 2940000, 3010000, 3090000, 3160000, 3240000, 3320000, 3400000, 3480000, 3570000, 3650000, 3740000, 3830000, 3920000, 4020000, 4120000, 4220000, 4320000, 4420000, 4530000, 4640000, 4750000, 4870000, 4990000, 5110000, 5230000, 5360000, 5490000, 5620000, 5760000, 5900000, 6040000, 6190000, 6340000, 6490000, 6650000, 6810000, 6980000, 7150000, 7320000, 7500000, 7680000, 7870000, 8060000, 8250000, 8450000, 8660000, 8870000, 9090000, 9310000, 9530000, 9760000, 10000000, 10200000, 10500000, 10700000, 11000000, 11300000, 11500000, 11800000, 12100000, 12400000, 12700000, 13000000, 13300000, 13700000, 14000000, 14300000, 14700000, 15000000, 15400000, 15800000, 16200000, 16500000, 16900000, 17400000, 17800000, 18200000, 18700000, 19100000, 19600000, 20000000, 20500000, 21000000, 21500000, 22100000, 22600000, 23200000, 23700000, 24300000, 24900000, 25500000, 26100000, 26700000, 27400000, 28000000, 28700000, 29400000, 30100000, 30900000, 31600000, 32400000, 33200000, 34000000, 34800000, 35700000, 36500000, 37400000, 38300000, 39200000, 40200000, 41200000, 42200000, 43200000, 44200000, 45300000, 46400000, 47500000, 48700000, 49900000, 51100000, 52300000, 53600000, 54900000, 56200000, 57600000, 59000000, 60400000, 61900000, 63400000, 64900000, 66500000, 68100000, 69800000, 71500000, 73200000, 75000000, 76800000, 78700000, 80600000, 82500000, 84500000, 86600000, 88700000, 90900000, 93100000, 95300000, 97600000, 100000000);
+   c_res = 0
+   r_res = 0
+   min_diff = 1
+   decade = 1
+   seed_decade = 1
+   freq = parseFloat(document.theForm.freq.value)
+   freq_entered = freq
+   q = parseFloat(document.theForm.q.value)
+   seed = parseFloat(document.theForm.seed.value)
+   if (freq >= 100000000)
+   {
+      alert ("Frequency must be < 100 MHz!")
+   }
+   else if (freq >= 10000000 && freq < 100000000)
+   {
+      freq = freq / 100000000
+      decade = decade * 1000000000
+   }
+   else if (freq >= 1000000 && freq < 10000000)
+   {
+      freq = freq / 10000000
+      decade = decade * 100000000
+   }
+   else if (freq >= 100000 && freq < 1000000)
+   {
+      freq = freq / 1000000
+      decade = decade * 10000000
+   }
+   else if (freq >= 10000 && freq < 100000)
+   {
+      freq = freq / 100000
+      decade = decade * 1000000
+   }
+   else if (freq >= 1000 && freq < 10000)
+   {
+      freq = freq / 10000
+      decade = decade * 100000
+   }
+   else if (freq >= 100 && freq < 1000)
+   {
+      freq = freq / 1000
+      decade = decade * 10000
+   }
+   else if (freq >= 10 && freq < 100)
+   {
+      freq = freq / 100
+      decade = decade * 1000
+   }
+   else if (freq >= 1 && freq < 10)
+   {
+      freq = freq / 10
+      decade = decade * 100
+   }
+   else if (freq >= .1 && freq < 1)
+   {
+      decade = decade * 10
+   }
+   else if (freq >= .01 && freq < .1)
+   {
+      freq = freq * 10
+      decade = decade * 1
+   }
+   else if (freq >= .001 && freq < .01)
+   {
+      freq = freq * 100
+      decade = decade * .1
+   }
+   else alert("Frequency must be >= .001")
+   for (i = 0 ; i < res.length ; i ++ )
+   {
+      for (j = 0 ; j < cap.length ; j ++ )
+      {
+         res_freq = 1 / (2 * Math.PI * res[i] * cap[j])
+         if (res_freq < .01) res_freq = res_freq * 10
+         if (res_freq < .1)  res_freq = res_freq * 10
+         diff = Math.abs(freq - res_freq)
+         if (diff <= min_diff)
+         {
+            min_diff = diff
+            c_res = cap[j]
+            r_res = res[i]
+         }
+      }
+   
+      real_freq = 1 / (2 * Math.PI * c_res * r_res / decade)
+      if (freq_entered / real_freq > 90) decade = decade * 100
+      if (freq_entered / real_freq > 9) decade = decade * 10
+      if (real_freq / freq_entered > 9) decade = decade * .1
+      decadeseed = (decade * seed) / 1000000000000
+      Z3 = c_res / decadeseed
+      Z4 = c_res / decadeseed
+      Z2 = r_res * seed
+      RO = r_res * seed
+   }
+   q_factor = (2 * q) - 1
+   rq2 = (r_res * seed) / q_factor
+   rq1 = r_res * seed * q_factor
+   rq2_low = 0
+   rq2_high = 0
+   rq1_low = 0
+   rq1_high = 0
+   for (k = 0 ; k < rq.length ; k ++ )
+   {
+      if (rq2 >= rq[k] && rq2 <= rq[k + 1])
+      {
+         rq2_low = rq[k]
+         rq2_high = rq[k + 1]
+      }
+      if (rq1 >= rq[k] && rq1 <= rq[k + 1])
+      {
+         rq1_low = rq[k]
+         rq1_high = rq[k + 1]
+      }
+   }
+   rq2_high_diff = rq2_high - rq2
+   rq2_low_diff = rq2 - rq2_low
+   if (rq2_low_diff < rq2_high_diff)
+   {
+      rq2_final = rq2_low
+   }
+   else
+   {
+      rq2_final = rq2_high
+   }
+   rq1_high_diff = rq1_high - rq1
+   rq1_low_diff = rq1 - rq1_low
+   if (rq1_low_diff < rq1_high_diff)
+   {
+      rq1_final = rq1_low
+   }
+   else
+   {
+      rq1_final = rq1_high
+   }
+   RQ2 = rq2_final;
+   RQ1 = rq1_final;
+   RG = 0;
+   RF = "open";
+   R1 = "open";
+   R2 = 0;
+   Z1 = 0;
+   Z5 = "open";
+   Z6 = "open";
+   unit1 = "Ohms";
+   unit2 = "Ohms";
+   unit3 = "pF";
+   unit4 = "pF";
+   unit5 = " ";
+   unit6 = " ";
+   unit7 = "Ohms";
+   unit8 = " ";
+   unit9 = " ";
+   unit10 = "Ohms";
+   unit11 = "Ohms";
+   unit12 = "Ohms";
+   unit13 = "Ohms";
+   document.theForm.filter.value = "DESIGN NOTES\n1. Keep Q between 1 and 50.\n2. Co is Z3 and Z4. First Ro is Z2.\n3. The open loop gain of the op amp selected must be at least 40 dB greater than the gain of the op amp at the resonant frequency.\n4. The input impedance of the op amp becomes important as RQ1 increases in value, for large values of Q you may need an FET input type op amp. You can combat this by scaling the R's and C's, but remember you need to use an NPO type capacitor for stability."
+   output()
+}
+function clear()
+{
+   document.theForm.Z1.value = "open";
+   document.theForm.Z2.value = "open";
+   document.theForm.Z3.value = "open";
+   document.theForm.Z4.value = "open";
+   document.theForm.Z5.value = "open";
+   document.theForm.Z6.value = "open";
+   document.theForm.RG.value = "open";
+   document.theForm.RF.value = "open";
+   document.theForm.R1.value = "open";
+   document.theForm.R2.value = "open";
+   document.theForm.RO.value = "open";
+   document.theForm.RQ1.value = "open";
+   document.theForm.RQ2.value = "open";
+   document.theForm.unit1.value = " ";
+   document.theForm.unit2.value = " ";
+   document.theForm.unit3.value = " ";
+   document.theForm.unit4.value = " ";
+   document.theForm.unit5.value = " ";
+   document.theForm.unit6.value = " ";
+   document.theForm.unit7.value = " ";
+   document.theForm.unit8.value = " ";
+   document.theForm.unit9.value = " ";
+   document.theForm.unit10.value = " ";
+   document.theForm.unit11.value = " ";
+   document.theForm.unit12.value = " ";
+   document.theForm.unit13.value = " ";
+}
+function lphp()
+{
+   RG = "open";
+   RF = 0;
+   R1 = 0;
+   R2 = "open";
+   RO = "open";
+   RQ1 = "open";
+   RQ2 = "open";
+   unit7 = " ";
+   unit8 = "Ohms";
+   unit9 = "Ohms";
+   unit10 = " ";
+   unit11 = " ";
+   unit12 = " ";
+   unit13 = " ";
+}
+function output()
+{
+   document.theForm.Z1.value = Z1;
+   document.theForm.Z2.value = Z2;
+   document.theForm.Z3.value = Z3;
+   document.theForm.Z4.value = Z4;
+   document.theForm.Z5.value = Z5;
+   document.theForm.Z6.value = Z6;
+   document.theForm.unit1.value = unit1;
+   document.theForm.unit2.value = unit2;
+   document.theForm.unit3.value = unit3;
+   document.theForm.unit4.value = unit4;
+   document.theForm.unit5.value = unit5;
+   document.theForm.unit6.value = unit6;
+   document.theForm.RG.value = RG;
+   document.theForm.RF.value = RF;
+   document.theForm.R1.value = R1;
+   document.theForm.R2.value = R2;
+   document.theForm.RO.value = RO;
+   document.theForm.RQ1.value = RQ1;
+   document.theForm.RQ2.value = RQ2;
+   document.theForm.unit7.value = unit7;
+   document.theForm.unit8.value = unit8;
+   document.theForm.unit9.value = unit9;
+   document.theForm.unit10.value = unit10;
+   document.theForm.unit11.value = unit11;
+   document.theForm.unit12.value = unit12;
+   document.theForm.unit13.value = unit13;
+}
+</SCRIPT>
+</HEAD>
+<BODY bgcolor="White">
+<font face=arial>
+<center><h1>Universal Filter Board Calculator</h1></center>
+<FORM name="theForm">
+<TABLE cellspacing="0" cellpadding="3" border="0"><TR><TD rowspan="2">
+<TABLE cellspacing="0" cellpadding="3" border="0" bgcolor="#ccffff"><TR><TD>
+<TR>
+<TD colspan="4" align="right"><B>Filter Type: </B></TD>
+  <TD>
+  <SELECT name="type">
+  <OPTION selected="" value="1">LP</OPTION>
+  <OPTION value="2">HP</OPTION>
+  <OPTION value="3">BP</OPTION>
+  </SELECT>
+  </TD>
+</TR>
+<tr>
+<td><b>For</b></td>
+<td><b>Enter</b></td>
+</tr>
+<TR>
+<TD><B>ALL</B></TD>
+  <TD colspan="3" align="right"><B>Frequency (Hz): </B></TD>
+  <TD><INPUT name="freq" value="15000" size=7></TD>
+</TR>
+<TR>
+<TD><B>BPF</B></TD>
+   <TD colspan="3" align="right"><B>Q and Gain (V/V): </B></TD>
+   <TD><INPUT name="q" value="10" size = 7></TD>
+</TR>
+<TR>
+<TD><B>BPF</B></TD>
+   <TD colspan="3" align="right"><B>Resistor Scale (Ohms): </B></TD>
+   <TD>
+      <SELECT name="seed">
+         <OPTION value="1">1</OPTION>
+         <OPTION value="10">10</OPTION>
+         <OPTION value="100">100</OPTION>
+         <OPTION selected="" value="1000">1000</OPTION>
+         <OPTION value="10000">10000</OPTION>
+         <OPTION value="100000">100000</OPTION>
+         <OPTION value="1000000">1000000</OPTION>
+      </SELECT>
+   </TD>
+</TR>
+<TR>
+<TD><B>BPF/LPF</B></TD>
+  <TD colspan="3" align="right"><B>Capacitor Sequence: </B></TD>
+  <TD>
+  <SELECT name="capseq">
+  <OPTION value="24">E24</OPTION>
+  <OPTION selected="" value="12">E12</OPTION>
+  <OPTION value="6">E6</OPTION>
+  </SELECT>
+  </TD>
+</TR>
+<TR>
+<TD><B>LPF</B></TD>
+<TD colspan="3" align="right"><B>Seed Resistor (Ohms): </B></TD>
+<TD><INPUT name="R" value="10000" size=7></TD>
+</tr>
+<TR>
+<TD><B>HPF</B></TD>
+<TD colspan="3" align="right"><B>Seed Capacitor (pF): </B></TD>
+<TD><INPUT name="C" value="1000" size = 7></TD>
+</tr>
+<TR>
+   <TD colspan="4">&nbsp;</TD>
+   <TD colspan="2"><INPUT type="button" value="Calculate" onclick="calculate1()"></TD>
+</TR>
+<TR>
+   <td><B>Z1</B></td>
+   <TD><INPUT name="Z1" style="background: #ccffff; border=0" size=6></TD>
+   <td><INPUT name="unit1" style="background: #ccffff; border=0" size=2></TD>
+   <td><B>Z4</B></td>
+   <TD><INPUT name="Z4" style="background: #ccffff; border=0" size=6></TD>
+   <td><INPUT name="unit4" style="background: #ccffff; border=0" size=2></TD>
+</TR>
+<TR>
+   <td><B>Z2</B></td>
+   <TD><INPUT name="Z2" style="background: #ccffff; border=0" size=6></TD>
+   <td><INPUT name="unit2" style="background: #ccffff; border=0" size=2></TD>
+   <td><B>Z5</B></td>
+   <TD><INPUT name="Z5" style="background: #ccffff; border=0" size=6></TD>
+   <td><INPUT name="unit5" style="background: #ccffff; border=0" size=2></TD>
+</TR>
+<TR>
+  <td><B>Z3</B></td>
+  <TD><INPUT name="Z3" style="background: #ccffff; border=0" size=6></TD>
+  <td><INPUT name="unit3" style="background: #ccffff; border=0" size=2></TD>
+  <td><B>Z6</B></td>
+  <TD><INPUT name="Z6" style="background: #ccffff; border=0" size=6></TD>
+  <td><INPUT name="unit6" style="background: #ccffff; border=0" size=2></TD>
+</TR>
+<TR>
+  <td><B>Ro</B></td>
+  <TD><INPUT name="RO" style="background: #ccffff; border=0" size=6></TD>
+  <td><INPUT name="unit11" style="background: #ccffff; border=0" size=2></TD>
+</tr>
+<TR>
+  <td><B>RQ1</B></td>
+  <TD><INPUT name="RQ1" style="background: #ccffff; border=0" size=6></TD>
+  <td><INPUT name="unit12" style="background: #ccffff; border=0" size=2></TD>
+  <td><B>RQ2</B></td>
+  <TD><INPUT name="RQ2" style="background: #ccffff; border=0" size=6></TD>
+  <td><INPUT name="unit13" style="background: #ccffff; border=0" size=2></TD>
+</TR>
+<TR>
+  <td><B>Rg</B></td>
+  <TD><INPUT name="RG" style="background: #ccffff; border=0" size=6></TD>
+  <td><INPUT name="unit7" style="background: #ccffff; border=0" size=2></TD>
+  <td><B>Rf</B></td>
+  <TD><INPUT name="RF" style="background: #ccffff; border=0" size=6></TD>
+  <td><INPUT name="unit8" style="background: #ccffff; border=0" size=2></TD>
+</TR>
+<TR>
+  <td><B>R1</B></td>
+  <TD><INPUT name="R1" style="background: #ccffff; border=0" size=6></TD>
+  <td><INPUT name="unit9" style="background: #ccffff; border=0" size=2></TD>
+  <td><B>R2</B></td>
+  <TD><INPUT name="R2" style="background: #ccffff; border=0" size=6></TD>
+  <td><INPUT name="unit10" style="background: #ccffff; border=0" size=2></TD>
+</TR>
+</TABLE>
+</td>
+<td><img src="universal_filter.gif" tppabs="http://booksite.elsevier.com/9780123914958/content/universal_filter/universal_filter.gif"></td>
+</tr>
+<tr>
+   <TD colspan="6">
+      <textarea name="filter" rows="6" cols="80"></textarea>
+   </td>
+</TR>
+</table>
+</FORM>
+</FONT>
+</BODY>
+</HTML>

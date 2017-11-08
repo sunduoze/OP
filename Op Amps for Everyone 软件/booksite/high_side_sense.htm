@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>Difference Amplifier Calculator</TITLE>
+<SCRIPT language="JavaScript">
+function calculate1()
+{
+   v_supply = parseFloat(document.theForm.v_supply.value);
+   rs = parseFloat(document.theForm.rs.value);
+   rl = parseFloat(document.theForm.rl.value);
+   v_ref = parseFloat(document.theForm.v_ref.value);
+   a1 = parseFloat(document.theForm.a1.value);
+   rg = parseFloat(document.theForm.rg.value);
+   rf = parseFloat(document.theForm.rf.value);
+   r_total = rs + rl;
+   il = v_supply / r_total;
+   rs_v = rs * il;
+   rs_w = rs_v * il;
+   a2 = (rf / rg) + 1;
+   vozs = v_ref;
+   vofs = (rs_v * a1 * a2) + v_ref;
+   document.theForm.rs_w.value = rs_w;
+   document.theForm.rs_v.value = rs_v;
+   document.theForm.il.value = il;
+   document.theForm.a2.value = a2;
+   document.theForm.vozs.value = vozs;   
+   document.theForm.vofs.value = vofs;
+}
+</SCRIPT>
+</HEAD>
+<BODY bgcolor="White">
+<font face=arial>
+<center><h1>Difference Amplifier Calculator</h1></center>
+<p>This is just a quick litte calculator to automate the design of difference amplifier circuits - as they relate to high side current sense applications.
+<FORM name="theForm">
+<TABLE cellspacing="0" cellpadding="1" border="1" bgcolor="#ccffcc"><TR><TD>
+<TABLE cellspacing="0" cellpadding="3" border="0">
+<TR>
+<TD align="right"><B>Power Supply Voltage (V): </B></TD>
+<TD><INPUT name="v_supply" value="12"></TD>
+</TR>
+<TR>
+<TD align="right"><B>RS (Ohms): </B></TD>
+<TD><INPUT name="rs" value="1"></TD>
+</tr>
+<TR>
+<TD align="right"><B>RL (Ohms): </B></TD>
+<TD><INPUT name="rl"  value="119"></TD>
+</tr>
+<TR>
+<TD align="right"><B>Reference Voltage (V): </B></TD>
+<TD><INPUT name="v_ref" value="2.5"></TD>
+</TR>
+<TR>
+<TD align="right"><B>Input Stage Gain (V/V): </B></TD>
+<TD><INPUT name="a1" value=".1"></TD>
+</TR>
+<TR>
+<TD align="right"><B>RG (Ohms): </B></TD>
+<TD><INPUT name="rg" value="100"></TD>
+</TR>
+<TR>
+<TD align="right"><B>RF (Ohms): </B></TD>
+<TD><INPUT name="rf" value="100000"></TD>
+</TR>
+<TR><TD>&nbsp;</TD><TD><INPUT type="button" value="Calculate" onclick="calculate1()"></TD></TR>
+<TR><td align="right"><B>RS Power (W):</B></td><TD><INPUT name="rs_w" style="background: #ccffcc; border=0" size=6></TD></TR>
+<TR><td align="right"><B>RS Voltage Drop (V):</B></td><TD><INPUT name="rs_v" style="background: #ccffcc; border=0" size=6></TD></TR>
+<TR><td align="right"><B>Load Current (Amps):</B></td><TD><INPUT name="il" style="background: #ccffcc; border=0" size=6></TD></TR>
+<TR><td align="right"><B>Second Stage Gain (V/V):</B></td><TD><INPUT name="a2" style="background: #ccffcc; border=0" size=6></TD></TR>
+<TR><td align="right"><B>Open Load Vout (V):</B></td><TD><INPUT name="vozs" style="background: #ccffcc; border=0" size=6></TD></TR>
+<TR><td align="right"><B>Full Load Vout (V):</B></td><TD><INPUT name="vofs" style="background: #ccffcc; border=0" size=6></TD></TR>
+</TABLE>
+</TD></TR></TABLE>
+</FORM>
+</FONT>
+</BODY>
+</HTML>
